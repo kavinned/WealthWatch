@@ -4,7 +4,7 @@ import { connectDB } from "../../../../../libs/mongodb";
 import { User } from "@/app/(models)/user";
 import bcrypt from "bcrypt";
 
-const authOptions = {
+export const authOptions = {
 	providers: [
 		Credentials({
 			name: "credentials",

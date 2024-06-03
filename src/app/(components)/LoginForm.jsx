@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -10,6 +10,13 @@ export default function LoginForm() {
 	const router = useRouter();
 	const [error, setError] = useState("");
 	const { data: session } = useSession();
+
+	useEffect(() => {
+		if (session) {
+			router.replace("/dashboard");
+		}
+	}, [session, router]);
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		setError("");
