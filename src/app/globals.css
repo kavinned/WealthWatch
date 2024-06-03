@@ -18,6 +18,10 @@
 	.auth > label {
 		@apply font-semibold text-slate-600 leading-4 mt-2;
 	}
+
+	.field-error {
+		@apply text-white font-semibold text-xs text-center bg-red-400 w-fit p-2 drop-shadow-md shadow-lg shadow-red-500 border border-red-800 rounded-lg;
+	}
 }
 
 @layer base {
