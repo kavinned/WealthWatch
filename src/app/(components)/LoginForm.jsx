@@ -33,9 +33,13 @@ export default function LoginForm() {
 				password,
 				redirect: false,
 			});
-			res.error && setError("Invalid Credentials");
-			res.ok && console.log("login success");
-			router.push("/dashboard");
+			if (!res.ok) {
+				setError("Invalid Credentials");
+				return;
+			} else if (res.ok) {
+				console.log("login success");
+				router.push("/dashboard");
+			}
 		} catch (error) {
 			console.log(error);
 		}
