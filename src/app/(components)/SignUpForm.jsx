@@ -2,14 +2,31 @@
 
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
-	const handleSubmit = (event) => {
+	const router = useRouter();
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		const formData = new FormData(event.target);
+		const formData = new FormData(event.currentTarget);
 		const name = formData.get("name");
 		const email = formData.get("email");
 		const password = formData.get("password");
+		try {
+			const res = await fetch("api/auth/signup", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ name, email, password }),
+			});
+			if (res.ok) {
+				router.push("/");
+				console.log("signup success");
+			}
+		} catch (error) {
+			console.log(error);
+		}
 
 		console.log({ name, email, password });
 	};
