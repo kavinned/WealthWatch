@@ -1,12 +1,9 @@
-import Image from "next/image";
-import SignUpForm from "../../components/SignUpForm";
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "./(components)/LoginForm";
 
 export default function Home() {
 	return (
-		<>
-			<SignUpForm />
+		<div className="flex flex-col w-screen h-screen justify-center items-center">
 			<LoginForm />
-		</>
+		</div>
 	);
 }
