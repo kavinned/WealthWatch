@@ -9,7 +9,7 @@ export default function NavBar() {
 	return (
 		<>
 			{session ? (
-				<nav>
+				<nav className="flex flex-row gap-10 justify-center items-center w-screen h-[7vh] bg-slate-200 drop-shadow-lg">
 					<button onClick={() => signOut()} type="button">
 						Sign Out
 					</button>
