@@ -12,7 +12,7 @@ export default function NavBar() {
 	return (
 		<>
 			{session ? (
-				<nav className=" w-screen h-[7vh] bg-slate-200 drop-shadow-lg text-sm">
+				<nav className=" w-screen h-[7vh] bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold">
 					<div className="flex flex-row items-center justify-around w-full h-full">
 						<Link className="nav-btn" href="/stocks">
 							Stocks
@@ -27,7 +27,7 @@ export default function NavBar() {
 						</Link>
 						<hr className="rotate-90 border-zinc-500 h-3 w-2" />
 						<button
-							className="bg-red-400 text-white border border-red-900 rounded-md py-1 px-2 w-fit self-center hover:bg-red-600 transition-all duration-200 ease-in-out drop-shadow-lg"
+							className="bg-red-600 text-white border-red-800 border-2 rounded-md py-1 px-2 w-fit self-center hover:bg-red-800 transition-all duration-200 ease-in-out drop-shadow-lg shadow-md shadow-zinc-700"
 							onClick={() => {
 								signOut();
 								router.push("/");
