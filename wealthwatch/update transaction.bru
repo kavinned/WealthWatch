@@ -1,0 +1,21 @@
+meta {
+  name: update transaction
+  type: http
+  seq: 11
+}
+
+put {
+  url: http://localhost:3000/api/budgets/665ecc65750e55af4f82cac7/transactions/665ecc80750e55af4f82cacd
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "amount": "1100",
+    "category": "entertainment",
+    "date":"2025-11-11",
+    "description": "rock climbing",
+    "type": "expense"
+  }
+}

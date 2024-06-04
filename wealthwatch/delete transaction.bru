@@ -1,0 +1,21 @@
+meta {
+  name: delete transaction
+  type: http
+  seq: 10
+}
+
+delete {
+  url: http://localhost:3000/api/budgets/665ecc65750e55af4f82cac7/transactions/665ecc80750e55af4f82cacd
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "amount": "60",
+    "category": "entertainment",
+    "date":"2023-11-11",
+    "description": "ktv",
+    "type": "expense"
+  }
+}
