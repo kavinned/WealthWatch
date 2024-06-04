@@ -5,6 +5,9 @@ import Link from "next/link";
 export default function StockCard({ session }) {
 	const [stocks, setStocks] = useState([
 		{ _id: 1, name: "GOOGLE", price: 1000 },
+		{ _id: 2, name: "AAPL", price: 200 },
+		{ _id: 3, name: "MSFT", price: 100 },
+		{ _id: 4, name: "TSLA", price: 1100 },
 	]);
 
 	// useEffect(() => {

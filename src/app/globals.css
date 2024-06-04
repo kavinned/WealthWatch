@@ -49,4 +49,5 @@ body {
 	opacity: 0.5;
 	display: block;
 	line-height: 1px;
+	@apply text-slate-800;
 }
