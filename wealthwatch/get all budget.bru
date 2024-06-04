@@ -1,0 +1,18 @@
+meta {
+  name: get all budget
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:3000/api/budgets
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Jan",
+    "limit": 200
+  }
+}
