@@ -42,3 +42,11 @@ body {
 	height: 100vh;
 	max-height: 100vh;
 }
+
+.dash-name::before {
+	content: "you are currently logged in as:";
+	font-size: 10px;
+	opacity: 0.5;
+	display: block;
+	line-height: 1px;
+}
