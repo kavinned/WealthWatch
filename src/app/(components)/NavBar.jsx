@@ -3,9 +3,11 @@ import React from "react";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
 	const { data: session } = useSession();
+	const router = useRouter();
 
 	return (
 		<>
@@ -26,7 +28,10 @@ export default function NavBar() {
 						<hr className="rotate-90 border-zinc-500 h-3 w-2" />
 						<button
 							className="bg-red-400 text-white border border-red-900 rounded-md py-1 px-2 w-fit self-center hover:bg-red-600 transition-all duration-200 ease-in-out drop-shadow-lg"
-							onClick={() => signOut()}
+							onClick={() => {
+								signOut();
+								router.push("/");
+							}}
 							type="button"
 						>
 							Sign Out
