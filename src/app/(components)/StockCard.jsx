@@ -1,14 +1,15 @@
-"use client";
-import React, { useEffect, useState } from "react";
+// "use client";
+// import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import StockInfo from "./StockInfo";
 
-export default function StockCard({ session }) {
-	const [stocks, setStocks] = useState([
+export default async function StockCard({ session }) {
+	const stocks = [
 		{ _id: 1, name: "GOOGLE", price: 1000 },
 		{ _id: 2, name: "AAPL", price: 200 },
 		{ _id: 3, name: "MSFT", price: 100 },
 		{ _id: 4, name: "TSLA", price: 1100 },
-	]);
+	];
 
 	// useEffect(() => {
 	// 	const fetchStocks = async () => {
@@ -18,8 +19,6 @@ export default function StockCard({ session }) {
 	// 	};
 	// 	fetchStocks();
 	// }, []);
-
-	console.log(stocks);
 
 	return (
 		<div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-2xl sm:p-8 dark:bg-zinc-600 dark:border-gray-700 drop-shadow-2xl">
@@ -40,20 +39,9 @@ export default function StockCard({ session }) {
 					className="divide-y divide-gray-200 dark:divide-gray-700"
 				>
 					{stocks.map((stock) => (
-						<li key={stock._id} className="py-3 sm:py-4">
-							<div className="flex items-center">
-								<div className="flex-shrink-0"></div>
-								<div className="flex-1 min-w-0 ms-4">
-									<p className="text-lg font-semibold text-gray-900 truncate dark:text-white">
-										{stock.name}
-									</p>
-								</div>
-								<div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-									${stock.price}
-								</div>
-							</div>
-						</li>
+						<StockInfo stock={stock} key={stock._id} />
 					))}
+					<li className="text-3xl text-slate-200 text-right">...</li>
 				</ul>
 			</div>
 		</div>
