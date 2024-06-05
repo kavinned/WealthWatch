@@ -7,6 +7,7 @@ export const config = {
 		"/budgets/:id",
 		"/budgets/:id/transactions",
 		"/budgets/:id/transactions/:tid",
+		"/budgets/new",
 		"/stocks",
 	],
 };

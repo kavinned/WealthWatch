@@ -4,7 +4,7 @@
 
 @layer components {
 	.auth {
-		@apply flex flex-col gap-2 w-1/4 border-0 border-slate-500 p-5 rounded-lg m-10 bg-slate-100 drop-shadow-2xl shadow-2xl;
+		@apply flex flex-col gap-2 w-1/4 border border-slate-300 p-5 rounded-lg m-10 bg-slate-100 drop-shadow-2xl shadow-2xl;
 	}
 
 	.auth > input {

@@ -30,7 +30,7 @@ export default function NavBar() {
 							className="bg-red-600 text-white border-red-800 border-2 rounded-md py-1 px-2 w-fit self-center hover:bg-red-800 transition-all duration-200 ease-in-out drop-shadow-lg shadow-md shadow-zinc-700"
 							onClick={() => {
 								signOut();
-								router.push("/");
+								router.replace("/");
 							}}
 							type="button"
 						>
