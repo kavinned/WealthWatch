@@ -26,6 +26,7 @@ export default function AddBudgetPage() {
 			});
 			await res.json();
 			router.push("/budgets");
+			router.refresh();
 		} catch (error) {
 			console.log(error);
 		}
