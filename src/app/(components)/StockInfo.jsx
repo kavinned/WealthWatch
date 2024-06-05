@@ -2,6 +2,7 @@
 import React from "react";
 
 export default function StockInfo({ stock }) {
+	console.log(stock);
 	return (
 		<li key={stock._id} className="py-3 sm:py-4">
 			<div className="flex items-center">
@@ -14,7 +15,7 @@ export default function StockInfo({ stock }) {
 						{stock.name}
 					</p>
 				</div>
-				<div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+				<div className="inline-flex items-center text-base font-semibold text-gray-900">
 					${stock.price}
 				</div>
 			</div>
