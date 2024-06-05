@@ -1,0 +1,19 @@
+meta {
+  name: create stock
+  type: http
+  seq: 12
+}
+
+post {
+  url: http://localhost:3000/api/stocks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "symbol": "AAPL",
+    "name": "Apple",
+    "price": "200"
+  }
+}

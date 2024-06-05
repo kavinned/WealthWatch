@@ -4,12 +4,9 @@ import Link from "next/link";
 import StockInfo from "./StockInfo";
 
 export default async function StockCard({ session }) {
-	const stocks = [
-		{ _id: 1, name: "GOOGLE", price: 1000 },
-		{ _id: 2, name: "AAPL", price: 200 },
-		{ _id: 3, name: "MSFT", price: 100 },
-		{ _id: 4, name: "TSLA", price: 1100 },
-	];
+	const stocks = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`).then(
+		(res) => res.json()
+	);
 
 	// useEffect(() => {
 	// 	const fetchStocks = async () => {
