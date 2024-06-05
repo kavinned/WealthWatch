@@ -8,7 +8,7 @@ export default async function TopGainersLoser() {
 	const { top_gainers: gainers, top_losers: losers } = stocks;
 
 	return (
-		<div className="w-screen h-fit">
+		<>
 			<h2 className="text-2xl font-bold text-slate-700 mt-5 ml-5 mb-5">
 				Top Gainers
 			</h2>
@@ -25,6 +25,6 @@ export default async function TopGainersLoser() {
 					<GainersLosersList key={stock.ticker} stock={stock} text="red" />
 				))}
 			</ul>
-		</div>
+		</>
 	);
 }
