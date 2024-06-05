@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function AddBudgetPage() {
+export default function AddTransactionPage() {
 	return <div>page</div>;
 }
