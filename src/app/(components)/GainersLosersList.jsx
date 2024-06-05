@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default function APIStockList({ stock, text }) {
+export default function GainersLosersList({ stock, text }) {
 	return (
 		<li className="border-0 w-[90%]">
 			<div className="flex items-center space-x-4 rtl:space-x-reverse bg-zinc-800 p-3 rounded-lg border-0 shadow-md shadow-zinc-500 drop-shadow-md">
