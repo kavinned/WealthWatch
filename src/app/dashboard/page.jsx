@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { FaPiggyBank } from "react-icons/fa";
 
 export default async function Dashboard() {
-	await new Promise((resolve) => setTimeout(resolve, 1000));
 	const session = await getServerSession();
 
 	return (
