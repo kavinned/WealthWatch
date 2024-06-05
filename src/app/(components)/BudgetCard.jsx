@@ -6,9 +6,11 @@ import BudgetInfo from "./BudgetInfo";
 export default async function BudgetCard({ session }) {
 	// const [budgets, setBudgets] = useState([]);
 
-	const budgets = await fetch(`${process.env.NEXTAUTH_URL}/api/budgets`).then(
-		(res) => res.json()
-	);
+	const fetchBudgets = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/budgets`
+	).then((res) => res.json());
+
+	const budgets = fetchBudgets.slice(0, 4);
 
 	// useEffect(() => {
 	// 	const fetchBudgets = async () => {

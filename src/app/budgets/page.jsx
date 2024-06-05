@@ -1,21 +1,25 @@
 import React from "react";
+import BudgetList from "../(components)/BudgetList";
+import Link from "next/link";
+export default async function Budgets() {
+	const budgets = await fetch(`${process.env.NEXTAUTH_URL}/api/budgets`, {
+		cache: "no-store",
+	}).then((res) => res.json());
 
-export default function Budgets() {
 	return (
-		<div className="h-[90vh] w-screen m-0 p-0">
-			<div className="flex justify-between bg-slate-400 text-slate-900 py-2 mb-5 drop-shadow-lg">
-				<h2 className="text-xl font-bold mx-5">Budgets</h2>
-				<button className="mx-5 text-xs bg-slate-200 text-slate-900 border border-zinc-200 rounded-md py-1 px-2 w-fit  hover:bg-slate-300 transition-all duration-200 ease-in-out drop-shadow-lg">
-					Add Budget
-				</button>
-			</div>
-			<ul className="grid grid-cols-2 gap-5 place-items-center">
-				<li>January</li>
-				<li>February</li>
-				<li>March</li>
-				<li>April</li>
-				<li>January</li>
-				<li>February</li>
+		<div className="h-[90vh] w-screen flex items-center flex-col">
+			<span className="flex w-screen flex-row justify-end h-3">
+				<Link
+					href="/budgets/new"
+					className="mt-10 mr-5 text-xs bg-zinc-900 nav-btn"
+				>
+					Add a new budget
+				</Link>
+			</span>
+			<ul class="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
+				{budgets.map((budget) => (
+					<BudgetList key={budget._id} budget={budget} />
+				))}
 			</ul>
 		</div>
 	);

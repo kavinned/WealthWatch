@@ -4,9 +4,11 @@ import Link from "next/link";
 import StockInfo from "./StockInfo";
 
 export default async function StockCard({ session }) {
-	const stocks = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`).then(
-		(res) => res.json()
-	);
+	const fetchStocks = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/stocks`
+	).then((res) => res.json());
+
+	const stocks = fetchStocks.slice(0, 4);
 
 	// useEffect(() => {
 	// 	const fetchStocks = async () => {
