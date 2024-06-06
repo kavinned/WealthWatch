@@ -3,14 +3,14 @@
 import Link from "next/link";
 import BudgetInfo from "./BudgetInfo";
 
-export default async function BudgetCard({ session }) {
+export default async function BudgetCard({ session, budgets }) {
 	// const [budgets, setBudgets] = useState([]);
 
-	const fetchBudgets = await fetch(
-		`${process.env.NEXTAUTH_URL}/api/budgets`
-	).then((res) => res.json());
+	// const fetchBudgets = await fetch(
+	// 	`${process.env.NEXTAUTH_URL}/api/budgets`
+	// ).then((res) => res.json());
 
-	const budgets = fetchBudgets.slice(0, 4);
+	// const budgets = fetchBudgets.slice(0, 4);
 
 	// useEffect(() => {
 	// 	const fetchBudgets = async () => {
@@ -39,7 +39,7 @@ export default async function BudgetCard({ session }) {
 					role="list"
 					className="divide-y divide-gray-200 dark:divide-gray-700"
 				>
-					{budgets.map((budget) => (
+					{budgets?.map((budget) => (
 						<BudgetInfo budget={budget} key={budget._id} />
 					))}
 					<li className="text-3xl text-slate-200 text-right">...</li>

@@ -3,12 +3,12 @@
 import Link from "next/link";
 import StockInfo from "./StockInfo";
 
-export default async function StockCard({ session }) {
-	const fetchStocks = await fetch(
-		`${process.env.NEXTAUTH_URL}/api/stocks`
-	).then((res) => res.json());
+export default async function StockCard({ session, stocks }) {
+	// const fetchStocks = await fetch(
+	// 	`${process.env.NEXTAUTH_URL}/api/stocks`
+	// ).then((res) => res.json());
 
-	const stocks = fetchStocks.slice(0, 4);
+	// const stocks = fetchStocks.slice(0, 4);
 
 	// useEffect(() => {
 	// 	const fetchStocks = async () => {
@@ -37,7 +37,7 @@ export default async function StockCard({ session }) {
 					role="list"
 					className="divide-y divide-gray-200 dark:divide-gray-700"
 				>
-					{stocks.map((stock) => (
+					{stocks?.map((stock) => (
 						<StockInfo stock={stock} key={stock._id} />
 					))}
 					<li className="text-3xl text-slate-200 text-right">...</li>
