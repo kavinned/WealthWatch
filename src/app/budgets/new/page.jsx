@@ -17,7 +17,7 @@ export default function AddBudgetPage() {
 		}
 		console.log({ name, limit });
 		try {
-			const res = await fetch("/api/budgets", {
+			const res = await fetch("/api/users/budgets", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

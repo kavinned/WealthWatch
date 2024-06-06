@@ -1,0 +1,26 @@
+import { NextResponse } from "next/server";
+import { connectDB } from "../../../../../libs/mongodb";
+import { User } from "@/app/(models)/user";
+export async function GET() {
+	try {
+		await connectDB();
+		const user = await User.findOne({ email: "test@test.com" });
+		const budget = user?.budgets;
+		return NextResponse.json(budget, { status: 200 });
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export async function POST(request) {
+	try {
+		const { name, limit } = await request.json();
+		await connectDB();
+		const user = await User.findOne({ email: "test@test.com" });
+		user?.budgets.push({ name, limit });
+		await user?.save();
+		return NextResponse.json(user, { status: 201 });
+	} catch (error) {
+		console.log(error);
+	}
+}

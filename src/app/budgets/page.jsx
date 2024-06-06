@@ -2,7 +2,7 @@ import React from "react";
 import BudgetList from "../(components)/BudgetList";
 import Link from "next/link";
 export default async function Budgets() {
-	const budgets = await fetch(`${process.env.NEXTAUTH_URL}/api/budgets`, {
+	const budgets = await fetch(`${process.env.NEXTAUTH_URL}/api/users/budgets`, {
 		cache: "no-store",
 	}).then((res) => res.json());
 
@@ -16,7 +16,7 @@ export default async function Budgets() {
 					Add a new budget
 				</Link>
 			</span>
-			<ul class="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
+			<ul className="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
 				{budgets.map((budget) => (
 					<BudgetList key={budget._id} budget={budget} />
 				))}

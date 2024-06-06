@@ -5,12 +5,16 @@ import { getServerSession } from "next-auth";
 import { FaPiggyBank } from "react-icons/fa";
 
 async function fetchBudgets() {
-	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/budgets`);
-	return res.json();
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/users/budgets`, {
+		cache: "no-store",
+	});
+	return res?.json();
 }
 
 async function fetchStocks() {
-	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`);
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`, {
+		cache: "no-store",
+	});
 	return res.json();
 }
 
