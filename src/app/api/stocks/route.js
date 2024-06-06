@@ -7,7 +7,7 @@ export async function GET() {
 }
 
 export async function POST(request) {
-	const { symbol, name, price } = await request.json();
-	await TrackedStocks.create({ symbol, name, price });
+	const { symbol, name } = await request.json();
+	await TrackedStocks.create({ symbol, name });
 	return NextResponse.json({ message: "success" }, { status: 201 });
 }
