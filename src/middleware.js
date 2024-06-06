@@ -9,5 +9,6 @@ export const config = {
 		"/budgets/:id/transactions/:tid",
 		"/budgets/new",
 		"/stocks",
+		"/stocks/search",
 	],
 };

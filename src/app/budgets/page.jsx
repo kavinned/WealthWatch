@@ -17,7 +17,6 @@ async function fetchBudgets(email) {
 
 export default async function Budgets() {
 	const session = await getServerSession();
-	console.log(session?.user?.email);
 
 	const budgets = await fetchBudgets(session?.user?.email);
 

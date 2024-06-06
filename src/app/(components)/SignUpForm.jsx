@@ -13,7 +13,7 @@ export default function SignUpForm() {
 
 	useEffect(() => {
 		if (session) {
-			router.replace("/dashboard");
+			router.push("/dashboard");
 		}
 	}, [session, router]);
 

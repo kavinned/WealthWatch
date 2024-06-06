@@ -23,10 +23,12 @@ async function fetchStocks() {
 
 export default async function Dashboard() {
 	const session = await getServerSession();
+
 	const [budgets, stocks] = await Promise.all([
 		fetchBudgets(session?.user?.email),
 		fetchStocks(),
 	]);
+
 	return (
 		<div className="flex flex-col justify-center w-screen h-[90vh]">
 			<span className="flex flex-row items-center justify-between">

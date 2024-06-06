@@ -10,8 +10,8 @@ export default function Search() {
 
 	useEffect(() => {
 		async function fetchStocks() {
-			setLoading(true);
 			if (!searchTerm) return;
+			setLoading(true);
 			const response = await fetch(
 				`https://api.polygon.io/v3/reference/tickers?search=${searchTerm}&active=true&order=asc&limit=100&apiKey=hQLZRnlZWNUZMBximrKg8D15QgeJ4OZh`
 			);

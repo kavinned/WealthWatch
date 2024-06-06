@@ -13,7 +13,10 @@ export default function LoginForm() {
 
 	useEffect(() => {
 		if (session) {
-			router.replace("/dashboard");
+			router.push("/dashboard");
+		}
+		if (session === null) {
+			router.replace("/");
 		}
 	}, [session, router]);
 
