@@ -18,13 +18,13 @@ async function fetchStocks() {
 	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`, {
 		cache: "no-store",
 	});
-	return res.json();
+	return res?.json();
 }
 
 export default async function Dashboard() {
 	const session = await getServerSession();
 
-	const [budgets, stocks] = await Promise.all([
+	const [budgets, stocks] = await Promise?.all([
 		fetchBudgets(session?.user?.email),
 		fetchStocks(),
 	]);

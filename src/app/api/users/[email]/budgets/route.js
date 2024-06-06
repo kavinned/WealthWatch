@@ -5,7 +5,7 @@ import { User } from "@/app/(models)/user";
 export async function GET(req, { params }) {
 	try {
 		await connectDB();
-		const user = await User.findOne({ email: params.email });
+		const user = await User?.findOne({ email: params.email });
 		const budget = user?.budgets;
 		return NextResponse.json(budget, { status: 200 });
 	} catch (error) {
