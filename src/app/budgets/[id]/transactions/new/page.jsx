@@ -12,7 +12,6 @@ export default function AddTransactionPage({ params }) {
 		event.preventDefault();
 
 		const formData = new FormData(event.target);
-		const name = formData.get("name");
 		const category = formData.get("category");
 		const amount = formData.get("amount");
 		const description = formData.get("description");
@@ -28,7 +27,6 @@ export default function AddTransactionPage({ params }) {
 					},
 					method: "POST",
 					body: JSON.stringify({
-						name,
 						category,
 						amount,
 						description,
@@ -46,16 +44,14 @@ export default function AddTransactionPage({ params }) {
 	};
 
 	return (
-		<div className="flex justify-center w-screen h-[90vh]">
-			<form className="auth w-1/3" onSubmit={handleSubmit}>
-				<label htmlFor="name">Name</label>
-				<input type="text" name="name" id="name" />
-				<label htmlFor="category">Category</label>
-				<input type="text" name="category" id="category" />
-				<label htmlFor="amount">Amount</label>
-				<input type="number" name="amount" id="amount" />
+		<div className="flex justify-center items-center w-screen h-[90vh]">
+			<form className="auth w-1/3 h-fit" onSubmit={handleSubmit}>
 				<label htmlFor="description">Description</label>
 				<input type="text" name="description" id="description" />
+				<label htmlFor="amount">Amount</label>
+				<input type="number" name="amount" id="amount" />
+				<label htmlFor="category">Category</label>
+				<input type="text" name="category" id="category" />
 				<label htmlFor="date">Date</label>
 				<input type="date" name="date" id="date" />
 				<label htmlFor="type">Type</label>
