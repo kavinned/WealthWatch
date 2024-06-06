@@ -34,7 +34,7 @@ root,
 
 @layer base {
 	body {
-		@apply bg-white;
+		@apply bg-zinc-100;
 	}
 }
 
