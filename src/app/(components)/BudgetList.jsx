@@ -18,7 +18,10 @@ export default function BudgetList({ budget }) {
 	}
 
 	return (
-		<li className="p-3 border-0">
+		<li
+			onClick={() => router.push(`/budgets/${budget._id}`)}
+			className="p-3 border-0"
+		>
 			<div className="flex items-center space-x-4 rtl:space-x-reverse bg-zinc-800 p-3 rounded-lg border-0 shadow-md shadow-zinc-500 drop-shadow-md">
 				<div className="flex-1 min-w-0">
 					<p className="text-sm font-semibold text-gray-200">{budget.name}</p>
@@ -26,7 +29,7 @@ export default function BudgetList({ budget }) {
 				<div className="inline-flex items-center text-base font-medium  text-gray-400">
 					${budget.limit}
 				</div>
-				<Link href={`/budgets/${budget._id}`} className="text-emerald-400">
+				<Link href={`/budgets/${budget._id}/edit`} className="text-emerald-400">
 					<FaPencilAlt className="cursor-pointer text-emerald-400" />
 				</Link>
 				<FaTrashAlt
