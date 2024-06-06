@@ -4,10 +4,13 @@ import StockCard from "../(components)/StockCard";
 import { getServerSession } from "next-auth";
 import { FaPiggyBank } from "react-icons/fa";
 
-async function fetchBudgets() {
-	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/users/budgets`, {
-		cache: "no-store",
-	});
+async function fetchBudgets(email) {
+	const res = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/users/${email}/budgets`,
+		{
+			cache: "no-store",
+		}
+	);
 	return res?.json();
 }
 
@@ -19,8 +22,11 @@ async function fetchStocks() {
 }
 
 export default async function Dashboard() {
-	const [budgets, stocks] = await Promise.all([fetchBudgets(), fetchStocks()]);
 	const session = await getServerSession();
+	const [budgets, stocks] = await Promise.all([
+		fetchBudgets(session?.user?.email),
+		fetchStocks(),
+	]);
 	return (
 		<div className="flex flex-col justify-center w-screen h-[90vh]">
 			<span className="flex flex-row items-center justify-between">

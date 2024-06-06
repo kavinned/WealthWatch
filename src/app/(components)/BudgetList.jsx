@@ -4,11 +4,14 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function BudgetList({ budget }) {
 	const router = useRouter();
+	const { data: session } = useSession();
+	const email = session?.user?.email;
 	async function handleDelete() {
-		await fetch(`/api/budgets/${budget._id}`, {
+		await fetch(`/api/users/${email}/budgets/${budget._id}`, {
 			method: "DELETE",
 		});
 		router.refresh();

@@ -1,10 +1,25 @@
 import React from "react";
 import BudgetList from "../(components)/BudgetList";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+async function fetchBudgets(email) {
+	const res = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/users/${email}/budgets`,
+		{
+			cache: "no-store",
+		}
+	);
+	if (!res) {
+		return [];
+	}
+	return res?.json();
+}
+
 export default async function Budgets() {
-	const budgets = await fetch(`${process.env.NEXTAUTH_URL}/api/users/budgets`, {
-		cache: "no-store",
-	}).then((res) => res.json());
+	const session = await getServerSession();
+	console.log(session?.user?.email);
+
+	const budgets = await fetchBudgets(session?.user?.email);
 
 	return (
 		<div className="h-[90vh] w-screen flex items-center flex-col">

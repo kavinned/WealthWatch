@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 export default function AddBudgetPage() {
 	const [error, setError] = useState("");
-
+	const { data: session } = useSession();
+	const email = session?.user?.email;
 	const router = useRouter();
 
 	const handleSubmit = async (event) => {
@@ -17,7 +19,7 @@ export default function AddBudgetPage() {
 		}
 		console.log({ name, limit });
 		try {
-			const res = await fetch("/api/users/budgets", {
+			const res = await fetch(`/api/users/${email}/budgets`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

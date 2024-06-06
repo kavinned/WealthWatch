@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { connectDB } from "../../../../../../libs/mongodb";
+import { connectDB } from "../../../../../../../libs/mongodb";
 import { User } from "@/app/(models)/user";
 
 export async function GET(request, { params }) {
 	try {
 		await connectDB();
-		const user = await User.findOne({ email: "test@test.com" });
+		const user = await User.findOne({ email: params.email });
 		const budget = user?.budgets?.find(
 			(budget) => budget._id.toString() == params.id
 		);
@@ -18,7 +18,7 @@ export async function GET(request, { params }) {
 export async function DELETE(request, { params }) {
 	try {
 		await connectDB();
-		const user = await User.findOne({ email: "test@test.com" });
+		const user = await User.findOne({ email: params.email });
 		const budget = user?.budgets?.filter(
 			(budget) => budget._id.toString() != params.id
 		);
@@ -34,7 +34,7 @@ export async function PUT(request, { params }) {
 	const { name, limit } = await request.json();
 	try {
 		await connectDB();
-		const user = await User.findOne({ email: "test@test.com" });
+		const user = await User.findOne({ email: params.email });
 		const budget = user?.budgets?.find(
 			(budget) => budget._id.toString() == params.id
 		);
