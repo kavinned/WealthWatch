@@ -1,12 +1,13 @@
 "use client";
 import Loading from "@/app/loading";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function Search() {
 	const [input, setInput] = useState("");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stocks, setStocks] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const resultsRef = useRef(null);
 
 	useEffect(() => {
 		async function fetchStocks() {
@@ -23,34 +24,47 @@ export default function Search() {
 		fetchStocks();
 	}, [searchTerm]);
 
+	useEffect(() => {
+		if (resultsRef.current) {
+			resultsRef.current?.scrollIntoView({ behavior: "smooth" });
+		}
+	}, [stocks]);
+
 	return (
 		<div className="flex flex-col items-center justify-center w-screen min-h-fit mt-10">
-			<fieldset className="mb-5">
-				<legend>Search for a stock</legend>
+			<label className="text-xl font-bold text-slate-700" htmlFor="search">
+				Search for a stock
+			</label>
+			<span className="flex flex-row items-center justify-center w-full">
 				<input
+					className="w-1/3 border-2 ring-2 ring-zinc-400 border-zinc-800 p-3 m-3 rounded-lg"
 					type="search"
 					onChange={(e) => {
 						setInput(e.target.value);
 					}}
-					className="border-2 rounded-lg p-2 border-slate-300 focus:ring-2 ring-slate-700 focus:border-slate-600"
 				/>
 				<button
+					className="nav-btn bg-zinc-800 hover:bg-zinc-600 p-3 m-3 rounded-xl"
 					onClick={() => {
 						setSearchTerm(input.toUpperCase());
 					}}
 				>
 					Search
 				</button>
-			</fieldset>
-			<div className="flex items-center justify-center flex-col gap-5">
-				{loading && <Loading />}
+			</span>
+
+			<div
+				ref={resultsRef}
+				className="flex flex-col items-center justify-center w-full min-h-fit mt-10 gap-5"
+			>
 				{stocks?.map((stock) => (
 					<div
-						className=" flex flex-col divide-y divide-black w-full border border-zinc-500 p-2 rounded-md"
+						className="w-1/3 border-2 p-3 border-zinc-500 rounded-lg divide-y divide-zinc-500 flex flex-col  justify-center bg-slate-200"
 						key={stock.ticker}
 					>
 						<p>{stock.ticker}</p>
 						<p>{stock.name}</p>
+						{loading && <Loading />}
 					</div>
 				))}
 			</div>
