@@ -1,3 +1,4 @@
+import Chart from "@/app/(components)/Chart";
 import React from "react";
 
 export async function fetchStock() {
@@ -18,8 +19,11 @@ export default async function StockDetails() {
 
 	return (
 		<div>
-			<h1>{stock["Meta Data"]["2. Symbol"]}</h1>
-			<p>{latestPrice}</p>
+			<div>
+				<h1>{stock["Meta Data"]["2. Symbol"]}</h1>
+				<p>{latestPrice}</p>
+			</div>
+			<Chart stock={stock} />
 		</div>
 	);
 }
