@@ -17,7 +17,6 @@ async function fetchBudgets(email) {
 
 export default async function Budgets() {
 	const session = await getServerSession();
-
 	const budgets = await fetchBudgets(session?.user?.email);
 
 	return (
@@ -32,7 +31,7 @@ export default async function Budgets() {
 			</span>
 			<ul className="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
 				{budgets.map((budget) => (
-					<BudgetList key={budget._id} budget={budget} />
+					<BudgetList key={budget._id} budget={budget} session={session} />
 				))}
 			</ul>
 		</div>

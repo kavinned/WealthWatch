@@ -4,26 +4,27 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 
-export default function BudgetList({ budget }) {
-	const router = useRouter();
-	const { data: session } = useSession();
+export default function BudgetList({ budget, session }) {
 	const email = session?.user?.email;
+	const router = useRouter();
+
 	async function handleDelete() {
-		await fetch(`/api/users/${email}/budgets/${budget._id}`, {
+		const res = await fetch(`/api/users/${email}/budgets/${budget._id}`, {
 			method: "DELETE",
 		});
+		await res?.json();
+
 		router.refresh();
 	}
 
 	return (
-		<li
-			onClick={() => router.push(`/budgets/${budget._id}`)}
-			className="p-3 border-0"
-		>
+		<li className="p-3 border-0">
 			<div className="flex items-center space-x-4 rtl:space-x-reverse bg-zinc-800 p-3 rounded-lg border-0 shadow-md shadow-zinc-500 drop-shadow-md">
-				<div className="flex-1 min-w-0">
+				<div
+					className="flex-1 min-w-0"
+					onClick={() => router.push(`/budgets/${budget._id}`)}
+				>
 					<p className="text-sm font-semibold text-gray-200">{budget.name}</p>
 				</div>
 				<div className="inline-flex items-center text-base font-medium  text-gray-400">
