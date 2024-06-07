@@ -21,10 +21,10 @@ export default function TransactionList({ transaction, budget }) {
 	}
 
 	return (
-		<li className="p-3 border-0 cursor-pointer">
+		<li className="p-3 border-0">
 			<div className="flex items-center space-x-4 rtl:space-x-reverse bg-zinc-800 p-3 rounded-lg border-0 shadow-md shadow-zinc-500 drop-shadow-md">
 				<div className="flex-1 min-w-0">
-					<p className="text-sm font-semibold text-gray-200">
+					<p className="text-sm font-semibold text-gray-200 cursor-pointer rounded-xl p-2 hover:bg-zinc-700 hover:scale-105 transition-all duration-200 ease-linear">
 						{transaction.description}
 					</p>
 				</div>

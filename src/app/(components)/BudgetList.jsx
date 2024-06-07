@@ -25,7 +25,9 @@ export default function BudgetList({ budget, session }) {
 					className="flex-1 min-w-0"
 					onClick={() => router.push(`/budgets/${budget._id}`)}
 				>
-					<p className="text-sm font-semibold text-gray-200">{budget.name}</p>
+					<p className="text-sm font-semibold text-gray-200 cursor-pointer rounded-xl p-2 hover:bg-zinc-700 hover:scale-105 transition-all duration-200 ease-linear">
+						{budget.name}
+					</p>
 				</div>
 				<div className="inline-flex items-center text-base font-medium  text-gray-400">
 					${budget.limit}
