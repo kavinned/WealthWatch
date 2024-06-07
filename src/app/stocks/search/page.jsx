@@ -1,5 +1,6 @@
 "use client";
 import Loading from "@/app/loading";
+import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 
 export default function Search() {
@@ -58,14 +59,15 @@ export default function Search() {
 				className="flex flex-col items-center justify-center w-full min-h-fit mt-10 gap-5"
 			>
 				{stocks?.map((stock) => (
-					<div
+					<Link
+						href={`/stocks/${stock.ticker}`}
 						className="w-1/3 border-2 p-3 border-zinc-500 rounded-lg divide-y divide-zinc-500 flex flex-col  justify-center bg-slate-200"
 						key={stock.ticker}
 					>
 						<p>{stock.ticker}</p>
 						<p>{stock.name}</p>
 						{loading && <Loading />}
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>
