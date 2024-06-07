@@ -3,7 +3,7 @@ import StockInfo from "./StockInfo";
 
 export default async function StockCard({ session, stocks }) {
 	return (
-		<div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-2xl sm:p-8 dark:bg-zinc-600 dark:border-gray-700 drop-shadow-2xl">
+		<div className="w-full max-w-md p-4 rounded-lg shadow-2xl sm:p-8 bg-zinc-800 border-gray-700 drop-shadow-2xl">
 			<div className="flex items-center justify-between mb-4">
 				<h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
 					Stocks
