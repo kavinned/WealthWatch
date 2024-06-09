@@ -11,5 +11,6 @@ export const config = {
 		"/budgets/new",
 		"/stocks",
 		"/stocks/search",
+		"/admin",
 	],
 };
