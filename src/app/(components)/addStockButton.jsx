@@ -7,15 +7,16 @@ export default function AddStockButton({ stock }) {
 	const { data: session } = useSession();
 
 	async function handleClick() {
-		const symbol = stock["Meta Data"]["2. Symbol"];
-		const res = await fetch(`/api/users/${session?.user?.email}/stocks`, {
-			method: "POST",
-			body: JSON.stringify({ symbol }),
-		});
-		if (res.ok) {
-			console.log(`success`);
+		try {
+			const symbol = stock["Meta Data"]["2. Symbol"];
+			const res = await fetch(`/api/users/${session?.user?.email}/stocks`, {
+				method: "POST",
+				body: JSON.stringify({ symbol }),
+			});
+			await res.json();
+		} catch (error) {
+			console.log(error);
 		}
-		await res.json();
 	}
 
 	return (
