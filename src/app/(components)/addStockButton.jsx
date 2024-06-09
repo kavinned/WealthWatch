@@ -1,10 +1,21 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import React from "react";
 
-export default function AddStockButton() {
+export default function AddStockButton({ stock }) {
+	const { data: session } = useSession();
+
 	async function handleClick() {
-		console.log("Add to tracked stocks");
+		const symbol = stock["Meta Data"]["2. Symbol"];
+		const res = await fetch(`/api/users/${session?.user?.email}/stocks`, {
+			method: "POST",
+			body: JSON.stringify({ symbol }),
+		});
+		if (res.ok) {
+			console.log(`success`);
+		}
+		await res.json();
 	}
 
 	return (

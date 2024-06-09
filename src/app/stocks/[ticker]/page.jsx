@@ -1,4 +1,5 @@
 import Chart from "@/app/(components)/Chart";
+import AddStockButton from "@/app/(components)/addStockButton";
 import React from "react";
 
 export async function fetchStock() {
@@ -19,6 +20,7 @@ export default async function StockDetails() {
 	return (
 		<div className="w-screen h-[90vh]">
 			<div>
+				<AddStockButton stock={stock} />
 				<h1>{stock["Meta Data"]["2. Symbol"]}</h1>
 				<p>{latestPrice}</p>
 			</div>
