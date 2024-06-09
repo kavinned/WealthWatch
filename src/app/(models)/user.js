@@ -5,26 +5,27 @@ const userSchema = new Schema(
 		name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
+		role: { type: String, default: "user" },
 		budgets: [
 			{
-				name: { type: String },
-				limit: { type: Number },
+				name: { type: String, required: true },
+				limit: { type: Number, required: true },
 				transactions: [
 					{
-						amount: { type: Number },
-						category: { type: String },
-						date: { type: Date },
-						description: { type: String },
-						type: { type: String },
+						amount: { type: Number, required: true },
+						category: { type: String, required: true },
+						date: { type: Date, required: true },
+						description: { type: String, required: true },
+						type: { type: String, required: true },
 					},
 				],
 			},
 		],
 		trackedStocks: [
 			{
-				symbol: { type: String },
-				name: { type: String },
-				price: { type: Number },
+				symbol: { type: String, required: true },
+				name: { type: String, required: true },
+				price: { type: Number, required: true },
 			},
 		],
 	},
