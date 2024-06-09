@@ -12,11 +12,11 @@ export default async function TopGainersLoser() {
 	losers.splice(0, 10);
 
 	return (
-		<div className="flex flex-col items-center justify-center w-screen min-h-fit mt-10">
+		<div className="grid grid-cols-1 place-items-center w-full">
 			<h2 className="text-2xl font-bold text-slate-700 mt-5 ml-5 mb-5">
 				Top Gainers
 			</h2>
-			<ul className="grid grid-cols-5 place-items-center gap-2">
+			<ul className="grid grid-cols-5 place-items-center w-full gap-2">
 				{gainers.map((stock) => (
 					<GainersLosersList key={stock.ticker} stock={stock} text="emerald" />
 				))}
@@ -24,7 +24,7 @@ export default async function TopGainersLoser() {
 			<h2 className="text-2xl font-bold text-slate-700 mt-5 ml-5 mb-5">
 				Top Losers
 			</h2>
-			<ul className="grid grid-cols-5 place-items-center gap-2">
+			<ul className="grid grid-cols-5 place-items-center gap-2 w-full">
 				{losers.map((stock) => (
 					<GainersLosersList key={stock.ticker} stock={stock} text="red" />
 				))}

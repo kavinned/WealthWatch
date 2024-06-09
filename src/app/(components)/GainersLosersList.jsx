@@ -11,12 +11,14 @@ export default function GainersLosersList({ stock, text }) {
 							{stock.ticker}
 						</p>
 					</div>
-					<div className={`text-${text}-400`}>{stock.change_percentage}</div>
-					<div
-						className={`inline-flex items-center font-semibold  text-${text}-400`}
-					>
-						${stock.price}
-					</div>
+					<span className="flex flex-col justify-center items-center p-2">
+						<div
+							className={`inline-flex items-center font-semibold  text-${text}-400`}
+						>
+							${stock.price}
+						</div>
+						<div className={`text-${text}-400`}>{stock.change_percentage}</div>
+					</span>
 				</div>
 			</Link>
 		</li>
