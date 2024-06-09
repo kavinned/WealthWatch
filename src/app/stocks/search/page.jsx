@@ -1,5 +1,5 @@
 "use client";
-import Loading from "@/app/loading";
+import LoadingStocks from "@/app/(components)/loadingStocks";
 import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 
@@ -72,7 +72,7 @@ export default function Search() {
 					>
 						<p>{stock.ticker}</p>
 						<p>{stock.name}</p>
-						{loading && <Loading />}
+						{loading && <LoadingStocks />}
 					</Link>
 				))}
 			</div>
