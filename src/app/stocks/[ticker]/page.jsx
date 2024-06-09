@@ -25,7 +25,7 @@ export default async function StockDetails() {
 			<div className="w-full h-fit flex justify-center items-center mt-10">
 				<div className="flex flex-col h-fit items-center justify-center w-1/2 gap-10">
 					<h2 className="text-2xl font-semibold text-zinc-900">
-						Prices for the last 30 days
+						Prices for the last 30 weeks
 					</h2>
 					<Chart stock={stock} />
 				</div>
