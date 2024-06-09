@@ -62,12 +62,12 @@ export default function Search() {
 
 			<div
 				ref={resultsRef}
-				className="flex flex-col items-center justify-center w-full min-h-fit mt-10 gap-5"
+				className="flex flex-row flex-wrap items-center justify-center w-full min-h-fit mt-10 mb-10 gap-5 transition-all duration-200 ease-in-out text-zinc-200"
 			>
 				{stocks?.map((stock) => (
 					<Link
 						href={`/stocks/${stock.ticker}`}
-						className="w-1/3 border-2 p-3 border-zinc-500 rounded-lg divide-y divide-zinc-500 flex flex-col  justify-center bg-slate-200"
+						className="hover:scale-105 hover:bg-zinc-700 hover:font-semibold w-1/3 border-2 p-3 border-zinc-500 rounded-lg divide-y divide-zinc-500 flex flex-col  justify-center bg-zinc-800 transition-all duration-300 ease-in-out shadow-xl drop-shadow-xl"
 						key={stock.ticker}
 					>
 						<p>{stock.ticker}</p>
