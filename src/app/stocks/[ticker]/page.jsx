@@ -10,7 +10,6 @@ export async function fetchStock() {
 
 export default async function StockDetails() {
 	const stock = await fetchStock();
-	console.log(stock);
 
 	const latestPrice =
 		stock["Weekly Adjusted Time Series"][
@@ -18,12 +17,19 @@ export default async function StockDetails() {
 		]["4. close"];
 
 	return (
-		<div>
+		<div className="w-screen h-[90vh]">
 			<div>
 				<h1>{stock["Meta Data"]["2. Symbol"]}</h1>
 				<p>{latestPrice}</p>
 			</div>
-			<Chart stock={stock} />
+			<div className="w-full h-fit flex justify-center items-center mt-10">
+				<div className="flex flex-col h-fit items-center justify-center w-1/2 gap-10">
+					<h2 className="text-2xl font-semibold text-zinc-900">
+						Prices for the last 30 days
+					</h2>
+					<Chart stock={stock} />
+				</div>
+			</div>
 		</div>
 	);
 }
