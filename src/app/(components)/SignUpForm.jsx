@@ -49,7 +49,7 @@ export default function SignUpForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="auth mb-3">
+			<form onSubmit={handleSubmit} className="form mb-3">
 				<label htmlFor="name"> Name: </label>
 				<input type="text" id="name" name="name" placeholder="name" />
 				<label htmlFor="email"> Email: </label>

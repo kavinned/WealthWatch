@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Loading from "@/app/loading";
 
 export default function EditTransactionPage({ params }) {
+	const [error, setError] = useState("");
 	const [transaction, setTransaction] = useState({
 		category: "",
 		type: "",
@@ -47,6 +48,11 @@ export default function EditTransactionPage({ params }) {
 		const date = formData.get("date");
 		const type = formData.get("type");
 
+		if (!category || !amount || !description || !date || !type) {
+			setError("Please fill in all fields");
+			return;
+		}
+
 		try {
 			const res = await fetch(
 				`/api/users/${email}/budgets/${id}/transactions/${tid}`,
@@ -76,7 +82,7 @@ export default function EditTransactionPage({ params }) {
 
 	return (
 		<div className="flex justify-center items-center w-screen h-[90vh]">
-			<form className="auth w-1/3 h-fit" onSubmit={handleSubmit}>
+			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
 				<label htmlFor="description">Description</label>
 				<input
 					type="text"
@@ -128,6 +134,11 @@ export default function EditTransactionPage({ params }) {
 					}
 				/>
 				<button type="submit">Edit</button>
+				{error !== "" && (
+					<span className="flex justify-center items-center">
+						<p className="field-error">{error}</p>
+					</span>
+				)}
 			</form>
 		</div>
 	);

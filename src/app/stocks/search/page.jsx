@@ -14,6 +14,7 @@ export default function Search() {
 		async function fetchStocks() {
 			if (!searchTerm) return;
 			setLoading(true);
+			await new Promise((resolve) => setTimeout(resolve, 100));
 			const response = await fetch(
 				`https://api.polygon.io/v3/reference/tickers?search=${searchTerm}&active=true&order=asc&limit=100&apiKey=${process.env.NEXT_PUBLIC_POLYGON_API_KEY}`
 			);
@@ -42,6 +43,11 @@ export default function Search() {
 					type="search"
 					onChange={(e) => {
 						setInput(e.target.value);
+					}}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							setSearchTerm(input.toUpperCase());
+						}
 					}}
 				/>
 				<button

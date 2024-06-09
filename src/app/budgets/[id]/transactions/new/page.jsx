@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function AddTransactionPage({ params }) {
+	const [error, setError] = useState("");
 	const router = useRouter();
 	const { id } = params;
 	const { data: session } = useSession();
@@ -17,6 +18,11 @@ export default function AddTransactionPage({ params }) {
 		const description = formData.get("description");
 		const date = formData.get("date");
 		const type = formData.get("type");
+
+		if (!category || !amount || !description || !date || !type) {
+			setError("Please fill in all fields");
+			return;
+		}
 
 		try {
 			const res = await fetch(
@@ -45,7 +51,7 @@ export default function AddTransactionPage({ params }) {
 
 	return (
 		<div className="flex justify-center items-center w-screen h-[90vh]">
-			<form className="auth w-1/3 h-fit" onSubmit={handleSubmit}>
+			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
 				<label htmlFor="description">Description</label>
 				<input type="text" name="description" id="description" />
 				<label htmlFor="amount">Amount</label>
@@ -57,6 +63,11 @@ export default function AddTransactionPage({ params }) {
 				<label htmlFor="type">Type</label>
 				<input type="text" name="type" id="type" />
 				<button type="submit">Submit</button>
+				{error !== "" && (
+					<span className="flex justify-center items-center">
+						<p className="field-error">{error}</p>
+					</span>
+				)}
 			</form>
 		</div>
 	);

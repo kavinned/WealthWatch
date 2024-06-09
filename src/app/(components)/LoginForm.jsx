@@ -50,7 +50,7 @@ export default function LoginForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="auth mb-3">
+			<form onSubmit={handleSubmit} className="form mb-3">
 				<label htmlFor="email">Email</label>
 				<input type="email" id="email" name="email" placeholder="email" />
 				<label htmlFor="password">Password</label>
