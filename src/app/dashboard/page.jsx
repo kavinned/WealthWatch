@@ -14,20 +14,22 @@ async function fetchBudgets(email) {
 	return res?.json();
 }
 
-async function fetchStocks() {
-	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`, {
-		cache: "no-store",
-	});
-	return res?.json();
-}
+// async function fetchStocks() {
+// 	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`, {
+// 		cache: "no-store",
+// 	});
+// 	return res?.json();
+// }
 
 export default async function Dashboard() {
 	const session = await getServerSession();
 
-	const [budgets, stocks] = await Promise?.all([
-		fetchBudgets(session?.user?.email),
-		fetchStocks(),
-	]);
+	// const [budgets, stocks] = await Promise?.all([
+	// 	fetchBudgets(session?.user?.email),
+	// 	fetchStocks(),
+	// ]);
+
+	const budgets = await fetchBudgets(session?.user?.email);
 
 	return (
 		<div className="flex flex-col justify-center w-screen h-[90vh]">
@@ -48,7 +50,7 @@ export default async function Dashboard() {
 			</span>
 			<div className="w-full h-full flex items-center justify-center gap-10 sm:p-10 xs:p-10">
 				<BudgetCard budgets={budgets} session={session} />
-				<StockCard stocks={stocks} session={session} />
+				{/* <StockCard stocks={stocks} session={session} /> */}
 			</div>
 		</div>
 	);
