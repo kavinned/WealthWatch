@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 
 export default function StockInfo({ stock }) {
-	console.log(stock);
 	return (
 		<li key={stock._id} className="py-3 sm:py-4">
 			<Link href={`/stocks/${stock.symbol}`}>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StockInfo from "./StockInfo";
+import { revalidatePath } from "next/cache";
 
 export default async function StockCard({ session }) {
 	const stocks = await fetch(
@@ -8,8 +9,7 @@ export default async function StockCard({ session }) {
 			cache: "no-store",
 		}
 	).then((res) => res?.json());
-
-	console.log(stocks);
+	revalidatePath("/api/users/[email]/stocks", "page");
 
 	return (
 		<div className="w-full max-w-md p-4 rounded-lg shadow-2xl sm:p-8 bg-zinc-800 border-gray-700 drop-shadow-2xl">

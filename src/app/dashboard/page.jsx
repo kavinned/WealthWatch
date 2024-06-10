@@ -7,7 +7,6 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export default async function Dashboard() {
 	const session = await getServerSession(authOptions);
-	console.log(session);
 
 	return (
 		<div className="flex flex-col justify-center w-screen h-[90vh]">
