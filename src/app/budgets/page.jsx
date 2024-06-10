@@ -21,7 +21,7 @@ export default async function Budgets() {
 
 	return (
 		<div className="h-[90vh] w-screen flex items-center flex-col">
-			<span className="flex w-screen flex-row justify-end h-fit">
+			<span className="flex w-screen flex-row justify-end h-3">
 				<Link
 					href="/budgets/new"
 					className="mt-10 mr-5 text-xs bg-zinc-900 nav-btn"
