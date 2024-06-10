@@ -42,12 +42,9 @@ export default function TransactionList({ transaction, budget }) {
 					href={`/budgets/${budget?._id}/transactions/${transaction._id}/edit`}
 					className="text-emerald-400"
 				>
-					<FaPencilAlt className="cursor-pointer text-emerald-400" />
+					<FaPencilAlt className="edit" />
 				</Link>
-				<FaTrashAlt
-					className="cursor-pointer text-red-400"
-					onClick={handleDelete}
-				/>
+				<FaTrashAlt className="trash" onClick={handleDelete} />
 			</div>
 		</li>
 	);

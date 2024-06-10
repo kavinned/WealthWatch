@@ -18,7 +18,7 @@ export default async function StockCard({ session }) {
 					Stocks
 				</h5>
 				<Link
-					href="/stocks"
+					href="/trackedStocks"
 					className="text-sm font-medium text-blue-800 hover:underline dark:text-blue-300"
 				>
 					View all
