@@ -32,6 +32,9 @@ export async function DELETE(request, { params }) {
 
 export async function PUT(request, { params }) {
 	const { name, limit } = await request.json();
+	if (!name || !limit) {
+		throw new Error("Please fill in all fields");
+	}
 	try {
 		await connectDB();
 		const user = await User.findOne({ email: params.email });

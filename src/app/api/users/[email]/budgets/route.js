@@ -16,6 +16,9 @@ export async function GET(req, { params }) {
 export async function POST(request, { params }) {
 	try {
 		const { name, limit } = await request.json();
+		if (!name || !limit) {
+			throw new Error("Please fill in all fields");
+		}
 		await connectDB();
 		const user = await User.findOne({ email: params.email });
 		user?.budgets.push({ name, limit });

@@ -5,6 +5,9 @@ export async function POST(request, { params }) {
 	try {
 		await connectDB();
 		const { amount, category, date, description, type } = await request.json();
+		if (!amount || !category || !date || !description || !type) {
+			throw new Error("Please fill in all fields");
+		}
 		const user = await User.findOne({ email: params.email });
 		const budget = user?.budgets?.find(
 			(budget) => budget._id.toString() == params.id

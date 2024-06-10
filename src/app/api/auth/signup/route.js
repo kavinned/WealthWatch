@@ -6,6 +6,9 @@ import bcrypt from "bcrypt";
 export const POST = async (request) => {
 	try {
 		const { name, email, password } = await request.json();
+		if (!name || !email || !password) {
+			throw new Error("Please fill in all fields");
+		}
 		const hashedPassword = await bcrypt.hash(password, 5);
 		await connectDB();
 		await User.create({ name, email, password: hashedPassword });
