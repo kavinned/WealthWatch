@@ -104,15 +104,22 @@ export default function EditTransactionPage({ params }) {
 					}
 				/>
 				<label htmlFor="category">Category</label>
-				<input
-					type="text"
+				<select
 					name="category"
 					id="category"
 					value={transaction.category}
 					onChange={(e) =>
 						setTransaction({ ...transaction, category: e.target.value })
 					}
-				/>
+				>
+					<option value="Food">Food</option>
+					<option value="Shopping">Shopping</option>
+					<option value="Entertainment">Entertainment</option>
+					<option value="Utilities">Utilities</option>
+					<option value="Savings">Savings</option>
+					<option value="Salary">Salary</option>
+					<option value="Other">Other</option>
+				</select>
 				<label htmlFor="date">Date</label>
 				<input
 					type="date"

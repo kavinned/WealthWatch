@@ -57,11 +57,22 @@ export default function AddTransactionPage({ params }) {
 				<label htmlFor="amount">Amount</label>
 				<input type="number" name="amount" id="amount" />
 				<label htmlFor="category">Category</label>
-				<input type="text" name="category" id="category" />
+				<select name="category" id="category">
+					<option value="Food">Food</option>
+					<option value="Shopping">Shopping</option>
+					<option value="Entertainment">Entertainment</option>
+					<option value="Utilities">Utilities</option>
+					<option value="Savings">Savings</option>
+					<option value="Salary">Salary</option>
+					<option value="Other">Other</option>
+				</select>
 				<label htmlFor="date">Date</label>
 				<input type="date" name="date" id="date" />
 				<label htmlFor="type">Type</label>
-				<input type="text" name="type" id="type" />
+				<select name="type" id=" type">
+					<option value="income">Income</option>
+					<option value="expense">Expense</option>
+				</select>
 				<button type="submit">Submit</button>
 				{error !== "" && (
 					<span className="flex justify-center items-center">
