@@ -31,7 +31,11 @@ export default function TransactionList({ transaction, budget }) {
 						{transaction.description}
 					</p>
 				</div>
-				<div className="inline-flex items-center text-base font-medium  text-gray-400">
+				<div
+					className={`inline-flex items-center text-base font-medium  text-gray-400 ${
+						transaction.type === "expense" ? "text-red-400" : "text-emerald-600"
+					}`}
+				>
 					${transaction.amount}
 				</div>
 				<Link

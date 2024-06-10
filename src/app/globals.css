@@ -12,7 +12,8 @@ root,
 		@apply flex flex-col gap-2 w-1/4 border border-slate-300 p-5 rounded-lg m-10 bg-slate-100 drop-shadow-2xl shadow-2xl;
 	}
 
-	.form > input {
+	.form > input,
+	select {
 		@apply border-2 rounded-lg p-2 border-slate-300 focus:ring-2 ring-slate-700 focus:border-slate-600 w-full shadow-md;
 	}
 
