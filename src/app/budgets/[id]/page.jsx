@@ -16,10 +16,13 @@ export default async function Budget({ params }) {
 	const { id } = params;
 	const session = await getServerSession();
 	const budget = await fetchBudget(session?.user?.email, id);
-	const spentAmt = budget.transactions.reduce(
-		(acc, curr) => acc + curr.amount,
-		0
-	);
+	const spentAmt = budget.transactions.reduce((acc, curr) => {
+		if (curr.type === "income") {
+			return acc - curr.amount;
+		} else {
+			return acc + curr.amount;
+		}
+	}, 0);
 
 	return (
 		<div className="flex flex-col items-center justify-center">
