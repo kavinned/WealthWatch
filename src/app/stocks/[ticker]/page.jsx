@@ -1,5 +1,5 @@
 import Chart from "@/app/(components)/Chart";
-import AddStockButton from "@/app/(components)/addStockButton";
+import AddStockButton from "@/app/(components)/AddStockButton";
 import React from "react";
 
 export async function fetchStock() {
