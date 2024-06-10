@@ -12,21 +12,30 @@ export async function fetchStock() {
 export default async function StockDetails() {
 	const stock = await fetchStock();
 
-	const latestPrice =
-		stock["Weekly Adjusted Time Series"][
-			Object.keys(stock["Weekly Adjusted Time Series"])[0]
-		]["4. close"];
+	const latestPrice = stock["Weekly Adjusted Time Series"][
+		Object.keys(stock["Weekly Adjusted Time Series"])[0]
+	]["4. close"].slice(0, 5);
 
 	return (
 		<div className="w-screen h-[90vh]">
-			<div>
-				<AddStockButton stock={stock} />
-				<h1>{stock["Meta Data"]["2. Symbol"]}</h1>
-				<p>{latestPrice}</p>
+			<AddStockButton stock={stock} />
+			<div className="w-screen h-fit flex flex-col justify-center items-center">
+				<h1 className="bg-zinc-800 px-3 py-2 text-2xl font-semibold text-zinc-300 rounded-xl drop-shadow-xl shadow-xl">
+					{stock["Meta Data"]["2. Symbol"]}
+				</h1>
+				<p className="text-xl mt-3 font-semibold text-zinc-800">
+					Latest Price: ${latestPrice}
+					<span
+						className="flex justify-center items-center p-0 m-0"
+						style={{ fontSize: "0.4rem" }}
+					>
+						as of {stock["Meta Data"]["3. Last Refreshed"]}
+					</span>
+				</p>
 			</div>
-			<div className="w-full h-fit flex justify-center items-center mt-10">
-				<div className="flex flex-col h-fit items-center justify-center w-1/2 gap-10">
-					<h2 className="text-2xl font-semibold text-zinc-900">
+			<div className="w-full h-fit flex justify-center items-center mt-3">
+				<div className="flex flex-col h-fit items-center justify-center w-1/2 gap-10 bg-zinc-200 rounded-lg p-10 shadow-2xl drop-shadow-2xl border-2 border-slate-400 border-opacity-50">
+					<h2 className="text-xl font-semibold text-zinc-700">
 						Prices for the last 30 weeks
 					</h2>
 					<Chart stock={stock} />
