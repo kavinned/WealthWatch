@@ -9,6 +9,13 @@ export const POST = async (request) => {
 		if (!name || !email || !password) {
 			throw new Error("Please fill in all fields");
 		}
+		const checkExisting = await User.findOne({ email });
+		if (checkExisting) {
+			return NextResponse.json(
+				{ message: "Email address already exists" },
+				{ status: 409 }
+			);
+		}
 		const hashedPassword = await bcrypt.hash(password, 5);
 		await connectDB();
 		await User.create({ name, email, password: hashedPassword });

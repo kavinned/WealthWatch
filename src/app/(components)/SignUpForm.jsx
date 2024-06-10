@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 
 export default function SignUpForm() {
 	const [error, setError] = useState(false);
+	const [userExistError, setUserExistError] = useState("");
 	const router = useRouter();
 
 	const { data: session } = useSession();
@@ -20,6 +21,7 @@ export default function SignUpForm() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		setError(false);
+		setUserExistError("");
 		const formData = new FormData(event.currentTarget);
 		const name = formData.get("name");
 		const email = formData.get("email");
@@ -39,6 +41,10 @@ export default function SignUpForm() {
 			if (res.ok) {
 				router.push("/");
 				console.log("signup success");
+			}
+			if (!res.ok) {
+				const data = await res.json();
+				setUserExistError(data.message);
 			}
 		} catch (error) {
 			console.log(error);
@@ -65,6 +71,11 @@ export default function SignUpForm() {
 				{error == true && (
 					<span className="flex justify-center">
 						<p className="field-error">Please enter all fields</p>
+					</span>
+				)}
+				{userExistError && (
+					<span className="flex justify-center">
+						<p className="field-error">{userExistError}</p>
 					</span>
 				)}
 			</form>
