@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function NavBar() {
 	const { data: session } = useSession();
+	console.log(session);
 	const router = useRouter();
 
 	return (
@@ -14,6 +15,14 @@ export default function NavBar() {
 			{session ? (
 				<nav className=" w-screen h-[7vh] bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold">
 					<div className="flex flex-row items-center justify-around w-full h-full">
+						{session?.user?.role === "admin" && (
+							<>
+								<Link className="nav-btn" href="/admin">
+									Admin Dashboard
+								</Link>
+								<hr className="rotate-90 border-zinc-500 h-3 w-2" />
+							</>
+						)}
 						<Link className="nav-btn" href="/stocks">
 							Stocks
 						</Link>

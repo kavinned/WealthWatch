@@ -17,7 +17,7 @@ export default async function StockDetails() {
 	]["4. close"].slice(0, 5);
 
 	return (
-		<div className="w-screen h-[90vh]">
+		<div className="w-screen h-[calc(100vh-7vh)]">
 			<AddStockButton stock={stock} />
 			<div className="w-screen h-fit flex flex-col justify-center items-center">
 				<h1 className="bg-zinc-800 px-3 py-2 text-2xl font-semibold text-zinc-300 rounded-xl drop-shadow-xl shadow-xl">

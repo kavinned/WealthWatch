@@ -20,7 +20,7 @@ export default async function Budgets() {
 	const budgets = await fetchBudgets(session?.user?.email);
 
 	return (
-		<div className="h-[90vh] w-screen flex items-center flex-col">
+		<div className="h-[calc(100vh-7vh)] w-screen flex items-center flex-col">
 			<span className="flex w-screen flex-row justify-end h-3">
 				<Link
 					href="/budgets/new"

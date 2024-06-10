@@ -9,7 +9,7 @@ export default async function Dashboard() {
 	const session = await getServerSession(authOptions);
 
 	return (
-		<div className="flex flex-col justify-center w-screen h-[90vh]">
+		<div className="flex flex-col justify-center w-screen h-[calc(100vh-7vh)]">
 			<span className="flex flex-row items-center justify-between">
 				<h1
 					className="text-2xl font-semibold text-zinc-700 ml-5 mt-5 drop-shadow-lg"

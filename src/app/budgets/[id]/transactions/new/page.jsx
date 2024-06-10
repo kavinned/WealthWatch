@@ -50,7 +50,7 @@ export default function AddTransactionPage({ params }) {
 	};
 
 	return (
-		<div className="flex justify-center items-center w-screen h-[90vh]">
+		<div className="flex justify-center items-center w-screen h-[calc(100vh-7vh)]">
 			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
 				<label htmlFor="description">Description</label>
 				<input type="text" name="description" id="description" />
