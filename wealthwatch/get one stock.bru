@@ -1,0 +1,17 @@
+meta {
+  name: get one stock
+  type: http
+  seq: 14
+}
+
+get {
+  url: http://localhost:3000/api/users/kavin@gmail.com/stocks/666695c3fda42369c17bf88d
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "symbol": "AAPL"
+  }
+}

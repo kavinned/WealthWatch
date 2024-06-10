@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
 	try {
 		await connectDB();
-		const user = await User.findOne({ email: params.email });
+		const user = await User?.findOne({ email: params.email });
 		const stock = user?.trackedStocks?.find(
-			(stock) => stock._id.toString() == params.sid
+			(stock) => stock?._id == params.sid
 		);
 		return NextResponse.json(stock, { status: 200 });
 	} catch (error) {
@@ -20,11 +20,11 @@ export async function DELETE(request, { params }) {
 		await connectDB();
 		const user = await User.findOne({ email: params.email });
 		const stock = user?.trackedStocks?.filter(
-			(stock) => stock._id.toString() != params.sid
+			(stock) => stock?._id != params.sid
 		);
 		user.trackedStocks = stock;
 		await user?.save();
-		return NextResponse.json(stock, { status: 200 });
+		return NextResponse.json(user?.trackedStocks, { status: 200 });
 	} catch (error) {
 		console.log(error);
 	}
