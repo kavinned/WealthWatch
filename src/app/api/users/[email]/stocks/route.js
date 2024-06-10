@@ -3,10 +3,14 @@ import { User } from "@/app/(models)/user";
 import { connectDB } from "../../../../../../libs/mongodb";
 
 export async function GET(req, { params }) {
-	await connectDB();
-	const user = await User.findOne({ email: params.email });
-	const stocks = await user.trackedStocks;
-	return NextResponse.json(stocks);
+	try {
+		await connectDB();
+		const user = await User?.findOne({ email: params.email });
+		const stocks = user?.trackedStocks;
+		return NextResponse.json(stocks, { status: 200 });
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export async function POST(request, { params }) {

@@ -1,7 +1,16 @@
 import Link from "next/link";
 import StockInfo from "./StockInfo";
 
-export default async function StockCard({ session, stocks }) {
+export default async function StockCard({ session }) {
+	const stocks = await fetch(
+		`${process.env.NEXTAUTH_URL}/api/users/${session?.user?.email}/stocks`,
+		{
+			cache: "no-store",
+		}
+	).then((res) => res?.json());
+
+	console.log(stocks);
+
 	return (
 		<div className="w-full max-w-md p-4 rounded-lg shadow-2xl sm:p-8 bg-zinc-800 border-gray-700 drop-shadow-2xl">
 			<div className="flex items-center justify-between mb-4">

@@ -1,35 +1,13 @@
 import React from "react";
 import BudgetCard from "../(components)/BudgetCard";
 import StockCard from "../(components)/StockCard";
-import { getServerSession } from "next-auth";
 import { FaPiggyBank } from "react-icons/fa";
-
-async function fetchBudgets(email) {
-	const res = await fetch(
-		`${process.env.NEXTAUTH_URL}/api/users/${email}/budgets`,
-		{
-			cache: "no-store",
-		}
-	);
-	return res?.json();
-}
-
-// async function fetchStocks() {
-// 	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/stocks`, {
-// 		cache: "no-store",
-// 	});
-// 	return res?.json();
-// }
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export default async function Dashboard() {
-	const session = await getServerSession();
-
-	// const [budgets, stocks] = await Promise?.all([
-	// 	fetchBudgets(session?.user?.email),
-	// 	fetchStocks(),
-	// ]);
-
-	const budgets = await fetchBudgets(session?.user?.email);
+	const session = await getServerSession(authOptions);
+	console.log(session);
 
 	return (
 		<div className="flex flex-col justify-center w-screen h-[90vh]">
@@ -49,8 +27,8 @@ export default async function Dashboard() {
 				</h2>
 			</span>
 			<div className="w-full h-full flex items-center justify-center gap-10 sm:p-10 xs:p-10">
-				<BudgetCard budgets={budgets} session={session} />
-				{/* <StockCard stocks={stocks} session={session} /> */}
+				<BudgetCard session={session} />
+				<StockCard session={session} />
 			</div>
 		</div>
 	);
