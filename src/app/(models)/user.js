@@ -5,7 +5,7 @@ const userSchema = new Schema(
 		name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
-		role: { type: String, default: "user" },
+		role: { type: String, default: "user", enum: ["user", "admin"] },
 		budgets: [
 			{
 				name: { type: String, required: true },
@@ -16,7 +16,7 @@ const userSchema = new Schema(
 						category: { type: String, required: true },
 						date: { type: Date, required: true },
 						description: { type: String, required: true },
-						type: { type: String, required: true },
+						type: { type: String, required: true, enum: ["income", "expense"] },
 					},
 				],
 			},
