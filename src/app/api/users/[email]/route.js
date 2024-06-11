@@ -26,3 +26,13 @@ export async function PATCH(request, { params }) {
 		console.log(error);
 	}
 }
+
+export async function GET(request, { params }) {
+	try {
+		await connectDB();
+		const user = await User.findOne({ email: params.email });
+		return NextResponse.json(user, { status: 200 });
+	} catch (error) {
+		console.log(error);
+	}
+}
