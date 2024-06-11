@@ -52,6 +52,9 @@ export default function AddTransactionPage({ params }) {
 	return (
 		<div className="flex justify-center items-center w-screen h-[calc(100vh-7vh)]">
 			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
+				<h1 className="text-center text-slate-200 font-bold">
+					Add a new transaction
+				</h1>
 				<label htmlFor="description">Description</label>
 				<input type="text" name="description" id="description" />
 				<label htmlFor="amount">Amount</label>

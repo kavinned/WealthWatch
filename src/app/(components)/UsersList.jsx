@@ -22,7 +22,7 @@ export default function UsersList({ user }) {
 					<p className="text-gray-200 text-xs font-light">{user.email}</p>
 					<p className="text-sm font-semibold text-gray-200">{user.name}</p>
 				</div>
-				<Link href={`/`} className="text-emerald-400">
+				<Link href={`/admin/${user.email}/edit`} className="text-emerald-400">
 					<FaPencilAlt className="edit" />
 				</Link>
 				<FaTrashAlt className="trash" onClick={handleDelete} />
