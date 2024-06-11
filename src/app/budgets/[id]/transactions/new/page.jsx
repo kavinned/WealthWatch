@@ -69,7 +69,7 @@ export default function AddTransactionPage({ params }) {
 				<label htmlFor="date">Date</label>
 				<input type="date" name="date" id="date" />
 				<label htmlFor="type">Type</label>
-				<select name="type" id=" type">
+				<select defaultValue={"expense"} name="type" id=" type">
 					<option value="income">Income</option>
 					<option value="expense">Expense</option>
 				</select>

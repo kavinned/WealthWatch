@@ -4,7 +4,6 @@ import { getServerSession } from "next-auth";
 
 export default async function TrackedStocksPage() {
 	const session = await getServerSession(authOptions);
-	console.log(session?.user?.email);
 	const stocks = await fetch(
 		`${process.env.NEXTAUTH_URL}/api/users/${session?.user?.email}/stocks`,
 		{

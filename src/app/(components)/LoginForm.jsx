@@ -40,7 +40,6 @@ export default function LoginForm() {
 				setError("Invalid Credentials");
 				return;
 			} else if (res.ok) {
-				console.log("login success");
 				router.push("/dashboard");
 			}
 		} catch (error) {

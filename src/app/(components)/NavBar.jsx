@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 export default function NavBar() {
 	const { data: session } = useSession();
-	console.log(session);
 	const router = useRouter();
 
 	return (

@@ -40,7 +40,6 @@ export default function SignUpForm() {
 			});
 			if (res.ok) {
 				router.push("/");
-				console.log("signup success");
 			}
 			if (!res.ok) {
 				const data = await res.json();
@@ -49,8 +48,6 @@ export default function SignUpForm() {
 		} catch (error) {
 			console.log(error);
 		}
-
-		console.log({ name, email, password });
 	};
 
 	return (

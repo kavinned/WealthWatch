@@ -19,7 +19,6 @@ export default function Search() {
 				`https://api.polygon.io/v3/reference/tickers?search=${searchTerm}&active=true&order=asc&limit=100&apiKey=${process.env.NEXT_PUBLIC_POLYGON_API_KEY}`
 			);
 			const data = await response.json();
-			console.log(data.results);
 			setStocks(data.results);
 			setLoading(false);
 		}

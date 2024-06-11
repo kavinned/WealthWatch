@@ -9,10 +9,7 @@ export default function BudgetInfo({ budget }) {
 				<div className="flex items-center">
 					<div className="flex-shrink-0"></div>
 					<div className="flex-1 min-w-0 ms-4">
-						<p
-							onClick={() => console.log(budget)}
-							className="cursor-pointer text-lg font-semibold text-gray-900 truncate dark:text-white"
-						>
+						<p className="cursor-pointer text-lg font-semibold text-gray-900 truncate dark:text-white">
 							{budget.name}
 						</p>
 					</div>

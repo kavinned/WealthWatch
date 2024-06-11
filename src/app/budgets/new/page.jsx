@@ -17,7 +17,6 @@ export default function AddBudgetPage() {
 			setError("Please enter all fields");
 			return;
 		}
-		console.log({ name, limit });
 		try {
 			const res = await fetch(`/api/users/${email}/budgets`, {
 				method: "POST",
