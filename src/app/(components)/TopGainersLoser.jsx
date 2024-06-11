@@ -2,14 +2,16 @@ import React from "react";
 import GainersLosersList from "./GainersLosersList";
 export default async function TopGainersLoser() {
 	const stocks = await fetch(
-		"https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo",
+		`https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${process.env.ALPHAVANTAGE_API_KEY}`,
 		{ cache: "no-store" }
 	).then((res) => res.json());
 
 	const { top_gainers: gainers, top_losers: losers } = stocks;
 
-	gainers.splice(0, 10);
-	losers.splice(0, 10);
+	console.log(gainers, losers);
+
+	gainers.splice(10, 20);
+	losers.splice(10, 20);
 
 	return (
 		<div className="grid grid-cols-1 place-items-center w-full">

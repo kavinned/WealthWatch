@@ -2,15 +2,15 @@ import Chart from "@/app/(components)/Chart";
 import AddStockButton from "@/app/(components)/AddStockButton";
 import React from "react";
 
-export async function fetchStock() {
+export async function fetchStock(ticker) {
 	const res = await fetch(
-		`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=IBM&apikey=demo`
+		`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${ticker}&apikey=${process.env.ALPHAVANTAGE_API_KEY}`
 	);
 	return res?.json();
 }
 
-export default async function StockDetails() {
-	const stock = await fetchStock();
+export default async function StockDetails({ params }) {
+	const stock = await fetchStock(params.ticker);
 
 	const latestPrice = stock["Weekly Adjusted Time Series"][
 		Object.keys(stock["Weekly Adjusted Time Series"])[0]
