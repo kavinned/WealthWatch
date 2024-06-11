@@ -57,7 +57,10 @@ export default function AddTransactionPage({ params }) {
 				<label htmlFor="amount">Amount</label>
 				<input type="number" name="amount" id="amount" />
 				<label htmlFor="category">Category</label>
-				<select name="category" id="category">
+				<select defaultValue="null" name="category" id="category">
+					<option hidden value="null">
+						Select a category
+					</option>
 					<option value="Food">Food</option>
 					<option value="Shopping">Shopping</option>
 					<option value="Entertainment">Entertainment</option>
@@ -67,7 +70,12 @@ export default function AddTransactionPage({ params }) {
 					<option value="Other">Other</option>
 				</select>
 				<label htmlFor="date">Date</label>
-				<input type="date" name="date" id="date" />
+				<input
+					defaultValue={new Date().toISOString().slice(0, 10)}
+					type="date"
+					name="date"
+					id="date"
+				/>
 				<label htmlFor="type">Type</label>
 				<select defaultValue={"expense"} name="type" id=" type">
 					<option value="income">Income</option>
