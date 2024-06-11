@@ -2,7 +2,7 @@ import React from "react";
 import GainersLosersList from "./GainersLosersList";
 export default async function TopGainersLoser() {
 	const stocks = await fetch(
-		`https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${process.env.ALPHAVANTAGE_API_KEY}`,
+		`https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=demo`,
 		{ cache: "no-store" }
 	).then((res) => res.json());
 
