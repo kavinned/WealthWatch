@@ -2,9 +2,11 @@
 
 import { useSession } from "next-auth/react";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function AddStockButton({ stock }) {
 	const { data: session } = useSession();
+	const router = useRouter();
 
 	async function handleClick() {
 		try {
@@ -14,6 +16,8 @@ export default function AddStockButton({ stock }) {
 				body: JSON.stringify({ symbol }),
 			});
 			await res.json();
+			router.push("/trackedStocks");
+			router.refresh();
 		} catch (error) {
 			console.log(error);
 		}
