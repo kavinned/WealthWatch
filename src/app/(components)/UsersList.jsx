@@ -3,10 +3,16 @@
 import React from "react";
 import Link from "next/link";
 import { FaTrashAlt, FaPencilAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function UsersList({ user }) {
+	const router = useRouter();
+
 	async function handleDelete() {
-		console.log(user._id);
+		await fetch(`/api/users/${user.email}`, {
+			method: "DELETE",
+		});
+		router.refresh();
 	}
 
 	return (

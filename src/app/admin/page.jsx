@@ -10,8 +10,6 @@ export default async function Admin() {
 		cache: "no-store",
 	}).then((res) => res.json());
 
-	console.log(users);
-
 	if (session?.user.role !== "admin") {
 		return <Unauthorized />;
 	}
