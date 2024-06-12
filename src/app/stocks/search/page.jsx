@@ -1,5 +1,5 @@
 "use client";
-import LoadingStocks from "@/app/(components)/loadingStocks";
+import LoadingStocks from "@/app/(components)/LoadingStocks";
 import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 

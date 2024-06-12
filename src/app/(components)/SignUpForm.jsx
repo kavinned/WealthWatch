@@ -78,7 +78,10 @@ export default function SignUpForm() {
 			</form>
 			<p>
 				Go back to{" "}
-				<Link className="underline text-blue-700 font-bold" href="/">
+				<Link
+					className="text-slate-200 border border-slate-800 bg-slate-700 font-bold bubble hover:bg-slate-500 hover:border-opacity-30 transition-all duration-75 ease-linear"
+					href="/"
+				>
 					Login
 				</Link>
 			</p>
