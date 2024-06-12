@@ -17,8 +17,8 @@ export default async function Admin() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center w-screen h-[100vh-7vh]">
-			<ul className="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
+		<div className="flex flex-col items-center justify-center w-full h-[100vh-7dvh]">
+			<ul className="max-w-[90dvw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
 				{users.map((user) => (
 					<UsersList key={user._id} user={user} />
 				))}

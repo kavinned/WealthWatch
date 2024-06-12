@@ -50,7 +50,7 @@ export default function AddTransactionPage({ params }) {
 	};
 
 	return (
-		<div className="flex justify-center items-center w-screen h-[calc(100vh-7vh)]">
+		<div className="flex justify-center items-center w-full h-[calc(100dvh-7dvh)]">
 			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
 				<h1 className="text-center text-slate-200 font-bold">
 					Add a new transaction

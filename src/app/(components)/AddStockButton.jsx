@@ -24,7 +24,7 @@ export default function AddStockButton({ stock }) {
 	}
 
 	return (
-		<span className="flex w-screen flex-row justify-end h-3">
+		<span className="flex w-full flex-row justify-end h-3">
 			<button
 				type="button"
 				className="mt-10 mr-5 text-xs bg-zinc-900 nav-btn"

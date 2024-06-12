@@ -27,9 +27,9 @@ export default async function StockDetails({ params }) {
 	]["4. close"].slice(0, 5);
 
 	return (
-		<div className="w-screen h-[calc(100vh-7vh)]">
+		<div className="w-full h-[calc(100dvh-7dvh)] overflow-auto">
 			<AddStockButton stock={stock} />
-			<div className="w-screen h-fit flex flex-col justify-center items-center">
+			<div className="w-full h-fit flex flex-col justify-center items-center">
 				<h1 className="bg-zinc-800 px-3 py-2 text-2xl font-semibold text-zinc-300 rounded-xl drop-shadow-xl shadow-xl">
 					{stockOverview.Symbol}
 				</h1>
@@ -53,6 +53,38 @@ export default async function StockDetails({ params }) {
 					</h2>
 					<Chart stock={stock} />
 				</div>
+			</div>
+			<div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nemo,
+					explicabo recusandae reprehenderit ut temporibus suscipit quis
+					reiciendis doloribus vitae dolorum optio aliquam labore aut
+					consectetur unde debitis laboriosam ipsam.
+				</p>
+			</div>
+			<div>
+				<p>
+					Ea, aspernatur ipsam distinctio, exercitationem laboriosam dolorum
+					quaerat ullam quos molestiae pariatur quia at tempora! Obcaecati,
+					veritatis, blanditiis architecto sed, quidem animi inventore omnis
+					sunt vero nemo corporis tempore asperiores.
+				</p>
+			</div>
+			<div>
+				<p>
+					Pariatur quae obcaecati reiciendis beatae optio quo maxime neque?
+					Facilis necessitatibus pariatur excepturi delectus suscipit culpa
+					dolor obcaecati magnam nostrum eum veniam, sunt ipsa saepe unde
+					recusandae impedit voluptatum veritatis.
+				</p>
+			</div>
+			<div>
+				<p>
+					Quas nesciunt fugit laboriosam vero placeat id illum beatae tempora
+					provident eius aperiam distinctio harum, qui voluptas, nobis pariatur!
+					Omnis repudiandae dolorum sed deleniti maiores aliquid modi odit
+					commodi voluptatem?
+				</p>
 			</div>
 		</div>
 	);

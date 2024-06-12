@@ -24,7 +24,7 @@ export default function Unauthorized() {
 	}, [router, count, session?.user?.role]);
 
 	return (
-		<div className="flex flex-col justify-center w-screen h-[calc(100vh-7vh)] items-center">
+		<div className="flex flex-col justify-center w-full h-[calc(100dvh-7dvh)] items-center">
 			<h1 className="text-3xl font-semibold border-4 p-5 border-red-600 rounded-lg bg-red-950 text-zinc-200">
 				You are not authorized to view this page
 			</h1>

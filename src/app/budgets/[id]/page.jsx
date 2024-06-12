@@ -26,7 +26,7 @@ export default async function Budget({ params }) {
 
 	return (
 		<div className="flex flex-col items-center justify-center">
-			<span className="flex w-screen flex-row justify-end h-3">
+			<span className="flex w-full flex-row justify-end h-3">
 				<Link
 					href={`/budgets/${id}/transactions/new`}
 					className="mt-10 mr-5 text-xs bg-zinc-900 nav-btn"
@@ -50,7 +50,7 @@ export default async function Budget({ params }) {
 					/ ${budget.limit}
 				</p>
 			</span>
-			<ul className="max-w-[90vw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
+			<ul className="max-w-[90dvw] w-[50rem] space-y-4 divide-y divide-gray-500 p-5">
 				{budget.transactions.map((transaction) => (
 					<TransactionList
 						key={transaction._id}

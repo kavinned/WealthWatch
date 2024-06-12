@@ -12,7 +12,7 @@ export default async function TrackedStocksPage() {
 	).then((res) => res.json());
 
 	return (
-		<div className="w-screen flex justify-center">
+		<div className="w-full flex justify-center">
 			<ul className="divide-y divide-gray-200 dark:divide-gray-700 w-full flex flex-row flex-wrap">
 				{stocks.map((stock) => (
 					<TrackedStocksList session={session} stock={stock} key={stock._id} />

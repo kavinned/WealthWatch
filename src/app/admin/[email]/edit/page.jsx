@@ -36,7 +36,7 @@ export default function EditUserPage({ params }) {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center w-screen h-[calc(100vh-7vh)]">
+		<div className="flex flex-col items-center justify-center w-full h-[calc(100dvh-7dvh)]">
 			<form className="form" onSubmit={handleSubmit}>
 				<label htmlFor="name">Name:</label>
 				<input

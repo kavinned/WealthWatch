@@ -66,7 +66,7 @@ export default function EditBudgetForm({ params }) {
 	if (loading) return <Loading />;
 
 	return (
-		<div className="flex justify-center items-center w-screen h-[calc(100vh-7vh)]">
+		<div className="flex justify-center items-center w-full h-[calc(100dvh-7dvh)]">
 			<form className="form w-1/3 h-fit" onSubmit={handleSubmit}>
 				<label htmlFor="name">Name</label>
 				<input
