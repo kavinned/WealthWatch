@@ -131,15 +131,17 @@ export default function EditTransactionPage({ params }) {
 					}
 				/>
 				<label htmlFor="type">Type</label>
-				<input
-					type="text"
-					name="type"
+				<select
 					id="type"
+					name="type"
 					value={transaction.type}
 					onChange={(e) =>
 						setTransaction({ ...transaction, type: e.target.value })
 					}
-				/>
+				>
+					<option value="income">Income</option>
+					<option value="expense">Expense</option>
+				</select>
 				<button type="submit">Edit</button>
 				{error !== "" && (
 					<span className="flex justify-center items-center">
