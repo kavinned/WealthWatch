@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WealthWatch
+
+This is an app that allows users to create and view budgets and transactions for each budget. Users can also search for and view information about stocks and add them to a list to track them.
+
+## Screenshots
+
+##### Dashboard
+
+<img width="400px" src="public/dash.png">
+
+##### Budget
+
+<img width="400px" src="public/budget.png">
+
+##### Transaction
+
+<img width="400px" src="public/tx.png">
+
+##### Stock
+
+<img width="400px" src="public/stock.png">
+
+##### Stock Info
+
+<img width="400px" src="public/stockinfo.png">
+
+##### Admin Dashboard
+
+<img width="400px" src="public/user.png">
+
+## Technologies
+
+- NextJS
+- Next-Auth
+- MongoDB and Mongoose
+- Tailwind
+- Chart.js
+- Polygon.io API
+- AlphaVantage API
 
 ## Getting Started
 
-First, run the development server:
+[**Demo**](https://p4-wealthwatch.vercel.app/)
+<br/>
+[**Trello**](https://trello.com/b/YUH5KTr0/wealthwatch)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Next Steps
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- See if budget is exceeded or not in budget page
+- Add more stock info in stock page
+- Ability to add buy and sell transactions for stock
+- Ability to show current value of held stocks
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Challenges
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The biggest challenge was learning NextJS especially regarding the server side rendering which I still haven't completely figured out.
+Another challenge was trying to get my session info back from next-auth to pass it in to my fetch/api calls.
 
-## Learn More
+## Key Takeaways
 
-To learn more about Next.js, take a look at the following resources:
+What I took away from this project is that I learnt a bit about NextJS and how it works.
+I also found out that tailwind styles can be applied globally so I didn't need to make styled components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Favorite Server Method
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Probably the DELETE/PUT methods for the individual transactions. It just goes into the user's budget and removes/updates the transaction.
 
-## Deploy on Vercel
+## Favorite Client Component
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I'd say the Chart component as it took me quite a long time to figure it out and get it to work.

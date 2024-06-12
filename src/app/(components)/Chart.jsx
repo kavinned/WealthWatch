@@ -38,14 +38,12 @@ export default function Chart({ stock }) {
 			x: {
 				grid: {
 					display: true,
-					borderDash: [5, 5],
 					color: "rgba(128,128,128,0.1)",
 				},
 			},
 			y: {
 				grid: {
 					display: true,
-					borderDash: [5, 5],
 					color: "rgba(128,128,128,0.1)",
 				},
 				ticks: {
