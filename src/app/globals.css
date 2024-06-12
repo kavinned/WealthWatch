@@ -32,6 +32,12 @@
 	.edit {
 		@apply cursor-pointer text-emerald-400 hover:text-emerald-700 hover:scale-110 transition-all duration-100;
 	}
+	.stock-overview {
+		@apply text-zinc-700 font-semibold text-lg drop-shadow-lg;
+	}
+	.bubble {
+		@apply bg-slate-400 px-2 py-1 rounded-2xl text-sm drop-shadow-md;
+	}
 }
 
 html,
