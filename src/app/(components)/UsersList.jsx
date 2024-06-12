@@ -13,7 +13,10 @@ export default function UsersList({ user }) {
 			method: "DELETE",
 		});
 		await res?.json();
-		router.refresh();
+		if (res.status === 200) {
+			router.push("/admin");
+			router.refresh();
+		}
 	}
 
 	return (
