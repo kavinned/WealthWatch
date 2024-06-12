@@ -12,5 +12,7 @@ export const config = {
 		"/stocks",
 		"/stocks/search",
 		"/admin",
+		"/admin/:email",
+		"/admin/:email/edit",
 	],
 };

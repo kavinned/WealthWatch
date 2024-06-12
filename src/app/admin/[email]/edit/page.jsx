@@ -4,7 +4,11 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function EditUserPage({ params }) {
-	const [user, setUser] = useState();
+	const [user, setUser] = useState({
+		name: "",
+		email: "",
+		role: "",
+	});
 	const router = useRouter();
 
 	useEffect(() => {
@@ -18,12 +22,13 @@ export default function EditUserPage({ params }) {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
+		const { name, email, role } = user;
 		const res = await fetch(`/api/users/${params.email}`, {
-			method: "PATCH",
+			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(user),
+			body: JSON.stringify({ name, email, role }),
 		});
 		await res.json();
 		router.push("/admin");
