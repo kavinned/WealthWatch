@@ -11,3 +11,5 @@ export async function GET() {
 		console.log(error);
 	}
 }
+
+export const revalidate = 0;

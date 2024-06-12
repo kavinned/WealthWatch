@@ -39,3 +39,5 @@ export async function GET(request, { params }) {
 		console.log(error);
 	}
 }
+
+export const revalidate = 0;
