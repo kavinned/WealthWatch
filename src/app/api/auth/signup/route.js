@@ -5,9 +5,14 @@ import bcrypt from "bcrypt";
 
 export const POST = async (request) => {
 	try {
+		await connectDB();
 		const { name, email, password } = await request.json();
+		console.log(name, email, password);
 		if (!name || !email || !password) {
-			throw new Error("Please fill in all fields");
+			return NextResponse.json(
+				{ message: "Please fill in all fields" },
+				{ status: 400 }
+			);
 		}
 		const checkExisting = await User.findOne({ email });
 		if (checkExisting) {
@@ -16,11 +21,12 @@ export const POST = async (request) => {
 				{ status: 409 }
 			);
 		}
+		console.log(checkExisting);
 		const hashedPassword = await bcrypt.hash(password, 5);
-		await connectDB();
 		await User.create({ name, email, password: hashedPassword });
 		return NextResponse.json({ message: "success" }, { status: 201 });
 	} catch (error) {
 		console.log(error);
+		return NextResponse.json({ message: "error" }, { status: 500 });
 	}
 };
