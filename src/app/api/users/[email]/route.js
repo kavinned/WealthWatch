@@ -1,8 +1,15 @@
 import { connectDB } from "../../../../../libs/mongodb";
 import { User } from "@/app/(models)/user";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export async function DELETE(request, { params }) {
+	const session = await getServerSession(authOptions);
+	console.log(session);
+	if (session?.user?.role !== "admin") {
+		return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+	}
 	try {
 		await connectDB();
 		const user = await User.deleteOne({ email: params.email });
@@ -13,6 +20,11 @@ export async function DELETE(request, { params }) {
 }
 
 export async function PUT(request, { params }) {
+	const session = await getServerSession(authOptions);
+	console.log(session);
+	if (session?.user?.role !== "admin") {
+		return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+	}
 	const { name, email, role } = await request.json();
 	if (!name || !email || !role) {
 		throw new Error("Please fill in all fields");
