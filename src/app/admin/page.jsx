@@ -1,18 +1,28 @@
-import { getServerSession } from "next-auth";
-import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Unauthorized from "../(components)/Unauthorized";
 import UsersList from "../(components)/UsersList";
-import { revalidatePath } from "next/cache";
+import { useSession } from "next-auth/react";
 
-export default async function Admin() {
-	const session = await getServerSession(authOptions);
-	const users = await fetch(`${process.env.NEXTAUTH_URL}/api/users`, {
-		cache: "no-store",
-	}).then((res) => res.json());
-	revalidatePath("/admin", "page");
+export default function Admin() {
+	const [users, setUsers] = useState([]);
+	const { data: session } = useSession();
 
-	if (session?.user.role !== "admin") {
+	console.log(session);
+
+	useEffect(() => {
+		async function fetchUsers() {
+			const res = await fetch(`/api/users`, {
+				cache: "no-store",
+			});
+			const data = await res?.json();
+			setUsers(data);
+		}
+		fetchUsers();
+	}, []);
+
+	if (session?.user?.role !== "admin") {
 		return <Unauthorized />;
 	}
 
