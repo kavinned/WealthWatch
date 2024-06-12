@@ -1,20 +1,27 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Unauthorized() {
+	const { data: session } = useSession();
+	if (session?.user?.role === "admin") {
+		router.push("/admin");
+	}
 	const [count, setCount] = useState(3);
 	const router = useRouter();
 	useEffect(() => {
-		if (count > 0) {
-			setInterval(() => {
-				setCount(count - 1);
-			}, 1000);
+		if (session?.user?.role === "user") {
+			if (count > 0) {
+				setInterval(() => {
+					setCount(count - 1);
+				}, 1000);
+			}
+			setTimeout(() => {
+				router.push("/dashboard");
+			}, 3000);
 		}
-		setTimeout(() => {
-			router.push("/dashboard");
-		}, 3000);
-	}, [router, count]);
+	}, [router, count, session?.user?.role]);
 
 	return (
 		<div className="flex flex-col justify-center w-screen h-[calc(100vh-7vh)] items-center">
