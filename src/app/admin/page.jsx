@@ -3,12 +3,14 @@ import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import Unauthorized from "../(components)/Unauthorized";
 import UsersList from "../(components)/UsersList";
+import { revalidatePath } from "next/cache";
 
 export default async function Admin() {
 	const session = await getServerSession(authOptions);
 	const users = await fetch(`${process.env.NEXTAUTH_URL}/api/users`, {
 		cache: "no-store",
 	}).then((res) => res.json());
+	revalidatePath("/admin", "page");
 
 	if (session?.user.role !== "admin") {
 		return <Unauthorized />;

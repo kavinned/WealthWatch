@@ -9,9 +9,10 @@ export default function UsersList({ user }) {
 	const router = useRouter();
 
 	async function handleDelete() {
-		await fetch(`/api/users/${user.email}`, {
+		const res = await fetch(`/api/users/${user.email}`, {
 			method: "DELETE",
 		});
+		await res?.json();
 		router.refresh();
 	}
 

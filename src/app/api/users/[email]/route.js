@@ -5,21 +5,24 @@ import { NextResponse } from "next/server";
 export async function DELETE(request, { params }) {
 	try {
 		await connectDB();
-		const deleteUser = await User.deleteOne({ email: params.email });
-		return NextResponse.json(deleteUser, { status: 200 });
+		const user = await User.deleteOne({ email: params.email });
+		return NextResponse.json(user, { status: 200 });
 	} catch (error) {
 		console.log(error);
 	}
 }
 
-export async function PATCH(request, { params }) {
+export async function PUT(request, { params }) {
 	const { name, email, role } = await request.json();
+	if (!name || !email || !role) {
+		throw new Error("Please fill in all fields");
+	}
 	try {
 		await connectDB();
 		const user = await User.findOne({ email: params.email });
-		user.name = name || user.name;
-		user.role = role || "user";
-		user.email = email || user.email;
+		user.name = name;
+		user.role = role;
+		user.email = email;
 		await user?.save();
 		return NextResponse.json(user, { status: 200 });
 	} catch (error) {
