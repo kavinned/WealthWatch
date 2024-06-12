@@ -30,7 +30,7 @@ export default function BudgetList({ budget, session }) {
 					</p>
 				</div>
 				<div className="inline-flex items-center text-base font-medium  text-gray-400">
-					${budget.limit}
+					Limit: ${budget.limit}
 				</div>
 				<Link href={`/budgets/${budget._id}/edit`} className="text-emerald-400">
 					<FaPencilAlt className="edit" />

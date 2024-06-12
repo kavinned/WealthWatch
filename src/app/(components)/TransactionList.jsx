@@ -30,10 +30,13 @@ export default function TransactionList({ transaction, budget }) {
 					<p className="text-sm font-semibold text-gray-200">
 						{transaction.description}
 					</p>
+					<p className="mt-2 bubble text-xs font-semibold text-zinc-800  w-fit">
+						{transaction.category}
+					</p>
 				</div>
 				<div
 					className={`inline-flex items-center text-base font-medium  text-gray-400 ${
-						transaction.type === "expense" ? "text-red-400" : "text-emerald-600"
+						transaction.type === "expense" ? "text-red-400" : "text-green-400"
 					}`}
 				>
 					${transaction.amount}
