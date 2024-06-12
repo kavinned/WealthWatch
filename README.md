@@ -6,27 +6,27 @@ This is an app that allows users to create and view budgets and transactions for
 
 ##### Dashboard
 
-<img width="400px" src="public/dash.png">
+<img src="public/dash.png">
 
 ##### Budget
 
-<img width="400px" src="public/budget.png">
+<img src="public/budget.png">
 
 ##### Transaction
 
-<img width="400px" src="public/tx.png">
+<img  src="public/tx.png">
 
 ##### Stock
 
-<img width="400px" src="public/stock.png">
+<img src="public/stock.png">
 
 ##### Stock Info
 
-<img width="400px" src="public/stockinfo.png">
+<img src="public/stockinfo.png">
 
 ##### Admin Dashboard
 
-<img width="400px" src="public/user.png">
+<img src="public/user.png">
 
 ## Technologies
 
