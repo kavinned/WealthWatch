@@ -103,8 +103,10 @@ body {
 
 @media (max-width: 768px) {
 	.dash-name::before {
-		position: relative;
-		top: 15px;
-		right: 100px;
+		line-height: 1.1rem;
+		margin-right: 0.2rem;
+	}
+	.dash-name {
+		font-size: 12px;
 	}
 }
