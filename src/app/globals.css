@@ -4,7 +4,8 @@
 
 @layer components {
 	.form {
-		@apply flex flex-col gap-2 w-1/4 border-2 border-slate-300 p-5 rounded-lg m-10 bg-zinc-800 drop-shadow-2xl shadow-2xl;
+		@apply flex flex-col gap-2 border-2 w-[80vw] border-slate-300 p-5 rounded-lg m-10 bg-zinc-800 drop-shadow-2xl shadow-2xl;
+		@apply md:w-1/4;
 	}
 
 	.form > input,
@@ -97,5 +98,13 @@ body {
 		width: 0;
 		right: 0;
 		left: unset;
+	}
+}
+
+@media (max-width: 768px) {
+	.dash-name::before {
+		position: relative;
+		top: 15px;
+		right: 100px;
 	}
 }
