@@ -9,15 +9,15 @@ export default async function Dashboard() {
 	const session = await getServerSession(authOptions);
 
 	return (
-		<div className="flex flex-col justify-center w-full h-[calc(100dvh-7dvh)]">
+		<div className="flex flex-col justify-between w-full h-screen md:h-[calc(100dvh-7dvh)]">
 			<span className="flex md:flex-row flex-col items-center justify-between gap-5">
 				<h1
-					className="text-xl md:text-2xl font-semibold text-zinc-700 ml-5 mt-5 drop-shadow-lg order-3 md:order-1"
+					className="text-xl md:text-2xl font-semibold text-zinc-700 ml-5 mt-5 drop-shadow-lg order-3 md:order-2"
 					style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.4)" }}
 				>
 					Welcome to your <br className="hidden md:block" /> dashboard
 				</h1>
-				<span className="flex md:flex-col gap-5 order-1 mt-5 ">
+				<span className="flex md:flex-col gap-5 order-2 md:mt-5">
 					<p className="md:text-4xl font-bold text-zinc-700">
 						{new Date().toLocaleTimeString(undefined, {
 							hour: "numeric",
@@ -30,13 +30,13 @@ export default async function Dashboard() {
 				</span>
 				<h3
 					style={{ textShadow: "0px 2px 2px rgba(0, 0, 0, 0.4)" }}
-					className="dash-name text-slate-700 font-bold text-lg md:mr-5 md:mt-5 flex flex-col justify-around items-center md:bg-zinc-200 md:p-4 md:border md:border-zinc-500 border-opacity-30 rounded-lg md:drop-shadow-lg md:shadow-sm order-2 absolute bottom-5 right-50 md:static"
+					className="dash-name text-slate-700 font-bold md:text-lg md:mr-5 md:mt-5 flex md:flex-col md:justify-around md:items-center md:bg-zinc-200 md:p-4 md:border md:border-zinc-500 md:border-opacity-30 md:rounded-lg md:drop-shadow-lg md:shadow-sm order-1 md:order-2 ml-auto md:ml-0 mr-2 mt-2"
 				>
 					{session?.user?.name}
 					<FaPiggyBank className="hidden md:block" />
 				</h3>
 			</span>
-			<div className="w-full h-full flex items-center flex-col md:flex-row justify-center gap-10 sm:p-10 xs:p-10">
+			<div className="flex items-center flex-col md:flex-row justify-center gap-10 md:p-10 xs:p-10 md:mb-36">
 				<BudgetCard session={session} />
 				<StockCard session={session} />
 			</div>
