@@ -29,10 +29,12 @@ export default async function StockCard({ session }) {
 					role="list"
 					className="divide-y divide-gray-200 dark:divide-gray-700"
 				>
-					{stocks?.map((stock) => (
+					{stocks?.slice(0, 3).map((stock) => (
 						<StockInfo stock={stock} key={stock._id} />
 					))}
-					<li className="text-3xl text-slate-200 text-right">...</li>
+					<li className="text-xs pt-3 text-slate-400 text-right">
+						{stocks?.length > 3 ? `+ ${stocks?.length - 3} more` : ""}
+					</li>
 				</ul>
 			</div>
 		</div>
