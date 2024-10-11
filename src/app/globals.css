@@ -41,6 +41,10 @@
 	}
 }
 
+* {
+	transition: all 0.3s ease-in-out;
+}
+
 body {
 	box-sizing: border-box;
 	widfth: 100%;
