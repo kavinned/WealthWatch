@@ -25,7 +25,7 @@ export default function Unauthorized() {
 
 	return (
 		<div className="flex flex-col justify-center w-full h-[calc(100dvh-7dvh)] items-center">
-			<h1 className="text-3xl font-semibold border-4 p-5 border-red-600 rounded-lg bg-red-950 text-zinc-200">
+			<h1 className="text-3xl font-semibold border-4 p-5 border-red-600 rounded-lg bg-red-950 text-zinc-200 w-[80vw]">
 				You are not authorized to view this page
 			</h1>
 			<p className="text-lg p-3 font-semibold text-zinc-700">
