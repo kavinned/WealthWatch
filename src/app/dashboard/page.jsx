@@ -36,7 +36,7 @@ export default async function Dashboard() {
 					<FaPiggyBank className="hidden md:block" />
 				</h3>
 			</span>
-			<div className="flex items-center flex-col md:flex-row justify-center gap-10 md:p-10 xs:p-10 mb-36 max-w-screen mx-2">
+			<div className="flex items-center flex-col md:flex-row justify-center gap-10 md:p-10 xs:p-10 mb-36 max-w-screen md:h-full w-[100vw]">
 				<BudgetCard session={session} />
 				<StockCard session={session} />
 			</div>
