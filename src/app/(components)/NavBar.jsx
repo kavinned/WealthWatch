@@ -1,18 +1,25 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import MobileMenuButton from "./MobileMenuButton";
+import MobileNavModal from "./MobileNavModal";
 
 export default function NavBar() {
 	const { data: session } = useSession();
 	const router = useRouter();
+	const [showModal, setShowModal] = useState(false);
+
+	const toggleModal = () => {
+		setShowModal(!showModal);
+	};
 
 	return (
 		<>
 			{session ? (
-				<nav className="w-full h-[7dvh] sticky bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold">
+				<nav className="w-full h-[7dvh] sticky bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold hidden md:flex">
 					<div className="flex flex-row items-center justify-around w-full h-full">
 						{session?.user?.role === "admin" && (
 							<>
@@ -48,6 +55,17 @@ export default function NavBar() {
 				</nav>
 			) : (
 				<></>
+			)}
+
+			{session && <MobileMenuButton onClick={toggleModal} />}
+
+			{session && showModal && (
+				<MobileNavModal
+					onClose={toggleModal}
+					session={session}
+					router={router}
+					signOut={signOut}
+				/>
 			)}
 		</>
 	);
