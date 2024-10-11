@@ -19,7 +19,7 @@ export default function NavBar() {
 	return (
 		<>
 			{session ? (
-				<nav className="w-full h-[7dvh] sticky bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold hidden md:flex">
+				<nav className="w-screen max-w-[100%] h-[7dvh] sticky bg-zinc-800 drop-shadow-lg shadow-lg text-sm font-semibold hidden md:flex">
 					<div className="flex flex-row items-center justify-around w-full h-full">
 						{session?.user?.role === "admin" && (
 							<>

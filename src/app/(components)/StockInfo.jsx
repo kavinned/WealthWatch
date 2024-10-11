@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function StockInfo({ stock }) {
 	return (
-		<li key={stock._id} className="py-3 sm:py-4">
+		<li key={stock._id} className="py-3">
 			<Link href={`/stocks/${stock.symbol}`}>
 				<div className="flex items-center">
 					<div className="flex-shrink-0"></div>
-					<div className="flex-1 flex justify-center min-w-0 ms-4">
+					<div className="flex-1 flex justify-center min-w-0">
 						<p className="text-lg font-semibold text-gray-900 truncate dark:text-white cursor-pointer">
 							{stock.symbol}
 						</p>

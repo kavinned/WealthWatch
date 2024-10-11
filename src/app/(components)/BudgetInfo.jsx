@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function BudgetInfo({ budget }) {
 	return (
-		<li key={budget._id} className="py-3 sm:py-4">
+		<li key={budget._id} className="py-3">
 			<Link href={`/budgets/${budget._id}`}>
 				<div className="flex items-center">
 					<div className="flex-shrink-0"></div>
