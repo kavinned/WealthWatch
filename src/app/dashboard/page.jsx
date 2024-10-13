@@ -9,7 +9,7 @@ export default async function Dashboard() {
 	const session = await getServerSession(authOptions);
 
 	return (
-		<div className="flex flex-col justify-between w-full h-screen md:h-[calc(100dvh-7dvh)] max-w-[100%]">
+		<div className="flex flex-col justify-between w-full h-[100svh] max-w-[100svw] md:h-[calc(100dvh-7dvh)]">
 			<span className="flex md:flex-row flex-col items-center justify-between gap-5">
 				<h1
 					className="text-xl md:text-2xl font-semibold text-zinc-700 ml-5 mt-5 drop-shadow-lg order-3 md:order-2"
@@ -36,7 +36,7 @@ export default async function Dashboard() {
 					<FaPiggyBank className="hidden md:block" />
 				</h3>
 			</span>
-			<div className="flex items-center flex-col md:flex-row justify-center gap-10 md:p-10 xs:p-10 mb-36 max-w-[100%] md:h-full w-[100vw]">
+			<div className="flex items-center flex-col md:flex-row justify-center gap-10 md:p-10 xs:p-10 mb-36 max-w-[100%] md:h-full w-[100vw] -z-0">
 				<BudgetCard session={session} />
 				<StockCard session={session} />
 			</div>
