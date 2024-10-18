@@ -32,7 +32,7 @@ export default function Search() {
   }, [stocks]);
 
   return (
-    <div className="mt-10 flex min-h-fit w-screen flex-col items-center justify-center">
+    <div className="m-0 mt-10 flex w-screen flex-col items-center justify-center p-0">
       <label className="text-xl font-bold text-slate-700" htmlFor="search">
         Search for a stock
       </label>
@@ -61,7 +61,7 @@ export default function Search() {
 
       <div
         ref={resultsRef}
-        className="mb-10 mt-10 flex min-h-fit w-full flex-col flex-wrap items-center justify-center gap-5 px-3 text-zinc-200 transition-all duration-200 ease-in-out md:flex-row md:px-0"
+        className="mb-10 mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-5 overflow-clip px-3 text-zinc-200 transition-all duration-200 ease-in-out md:flex-row md:px-0"
       >
         {stocks?.map((stock) => (
           <Link
