@@ -14,7 +14,7 @@ export default async function TopGainersLoser() {
   losers.splice(10, 20);
 
   return (
-    <div className="grid w-full grid-cols-1 place-items-center">
+    <div className="grid grid-cols-1 place-items-center">
       <h2 className="mb-5 ml-5 mt-5 text-2xl font-bold text-slate-700">
         Top Gainers
       </h2>

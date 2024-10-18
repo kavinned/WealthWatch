@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
     <>
       {session ? (
-        <nav className="sticky z-50 flex h-[7svh] w-screen max-w-[100svw] flex-col bg-zinc-800 text-sm font-semibold shadow-lg drop-shadow-lg md:flex-row">
+        <nav className="sticky z-50 flex h-[7svh] w-full max-w-[100svw] flex-col bg-zinc-800 text-sm font-semibold shadow-lg drop-shadow-lg md:flex-row">
           <button
             className="nav-btn mt-[2svh] h-fit w-fit self-center bg-zinc-900 text-center text-xs md:mt-0 md:hidden"
             onClick={handleClick}
