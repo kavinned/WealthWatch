@@ -27,7 +27,12 @@ export default function Search() {
 
   useEffect(() => {
     if (resultsRef.current && stocks.length > 0) {
-      resultsRef.current.scrollIntoView({ behavior: "smooth" });
+      const firstResult = document.querySelector(
+        `[data-stock="stock-item-${stocks[0].ticker}"]`,
+      );
+      if (firstResult) {
+        firstResult.scrollIntoView({ behavior: "smooth" });
+      }
     }
   }, [stocks]);
 
@@ -45,6 +50,8 @@ export default function Search() {
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
+              setSearchTerm(null);
+              setStocks([]);
               setSearchTerm(input.toUpperCase());
             }
           }}
@@ -52,6 +59,8 @@ export default function Search() {
         <button
           className="nav-btn m-3 rounded-xl bg-zinc-800 p-3 hover:bg-zinc-600"
           onClick={() => {
+            setSearchTerm(null);
+            setStocks([]);
             setSearchTerm(input.toUpperCase());
           }}
         >
@@ -59,9 +68,10 @@ export default function Search() {
         </button>
       </span>
 
-      <div className="mb-10 mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-5 px-3 text-zinc-200 transition-all duration-200 ease-in-out md:mx-0 md:flex-row md:px-0">
+      <div className="mb-10 mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-5 px-3 pt-5 text-zinc-200 transition-all duration-200 ease-in-out md:mx-0 md:flex-row md:px-0">
         {stocks?.map((stock) => (
           <Link
+            data-stock={`stock-item-${stock.ticker}`}
             ref={resultsRef}
             href={`/stocks/${stock.ticker}`}
             className="flex w-full flex-col justify-center divide-y divide-zinc-500 rounded-lg border-2 border-zinc-500 bg-zinc-800 p-3 shadow-xl drop-shadow-xl transition-all duration-300 ease-in-out hover:scale-105 hover:bg-zinc-700 hover:font-semibold md:w-1/3"
